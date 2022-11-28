@@ -1,10 +1,33 @@
 .header {
   display: flex;
   justify-content: space-between;
-  align-content: center;
-  min-height: 66px;
-  padding: 10px 30px;
+  align-items: center;
+  min-height: 88px;
+  padding: 20px 30px;
   background-color: #212121;
+
+  &Logo {
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 500;
+    color: #fff;
+  }
+  &Search {
+    width: 765px;
+    margin: auto;
+    // height: 48px;
+
+    &Input {
+      border: 0;
+      height: 48px;
+      width: 700px;
+      // background-color: #000000;
+    }
+    &Buttom {
+      height: 48px;
+      width: 65px;
+    }
+  }
 }
 
 .cardWrapper {

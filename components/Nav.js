@@ -9,8 +9,12 @@ export default function HeaderBar() {
           Health Shared
         </Link>
         <form className={styles.headerSearch}>
-          <input type="text" placeholder="Search" />
-          <button type="submit">
+          <input
+            className={styles.headerSearchInput}
+            type="search"
+            placeholder="Search"
+          />
+          <button className={styles.headerSearchButtom} type="submit">
             <img src="../header/search.svg" alt="Кнопка «search»" />
           </button>
         </form>
