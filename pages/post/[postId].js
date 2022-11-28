@@ -1,13 +1,15 @@
 import { Card } from "@mui/material";
 import { useRouter } from "next/router";
-import styles from "../../styles/Home.module.css";
+import styles from "../../styles/Home.module.scss";
 
 export default function Post() {
   const router = useRouter();
   return (
-    <Card>
+    <Card className={styles.cardWrapper}>
       <div className={styles.defaultCard}>
-        <h1>Post {router.query.postId}</h1>
+        <h1>
+          Post lorem ffdgdfgfdggggggggggggggggggggggggggg {router.query.postId}
+        </h1>
       </div>
     </Card>
   );

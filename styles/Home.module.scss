@@ -1,0 +1,18 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  min-height: 66px;
+  padding: 10px 30px;
+  background-color: #212121;
+}
+
+.cardWrapper {
+  margin-top: 56px;
+  width: 1084px;
+  border-radius: 8;
+}
+
+.defaultCard {
+  padding: 27px 80px 24px 80px;
+}
