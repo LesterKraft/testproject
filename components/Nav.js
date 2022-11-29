@@ -1,6 +1,5 @@
-import styles from "../styles/Home.module.scss";
+import styles from "/styles/Home.module.scss";
 import Link from "next/link";
-import HelpIcon from "@mui/icons-material/Help";
 import IconButton from "@mui/material/IconButton";
 
 export default function HeaderBar() {
@@ -17,26 +16,18 @@ export default function HeaderBar() {
               type="text"
               placeholder="Search"
             />
-            <button className={styles.headerSearchButtom} type="submit">
-              <img
-                style={{ transform: "rotate(90deg)" }}
-                src="../header/search.svg"
-                alt="Кнопка «search»"
-              />
+            <button className={styles.headerSearchButton} type="submit">
+              <img src="../header/search.svg" alt="Кнопка «search»" />
             </button>
           </form>
         </div>
         <div>
-          {/* < href="#" className={styles.headerHelp}>
-            <img src="../header/help.svg" alt="help" />
-          </Link> */}
           <IconButton>
-            <HelpIcon sx={{ color: "white" }} />
+            <img src="/header/help.svg" alt="help" />
           </IconButton>
-
-          <Link href="#" className={styles.headerNotification}>
-            <img src="../header/notifications.svg" alt="notifications" />
-          </Link>
+          <IconButton className={styles.headerNotification}>
+            <img src="/header/notifications.svg" alt="notifications" />
+          </IconButton>
         </div>
       </header>
     </>

@@ -18,53 +18,51 @@
   &Search {
     display: inline-block;
     vertical-align: middle;
-
     margin-left: 159px;
 
     &Input {
       vertical-align: middle;
       padding: 12px 24px;
-
       border: 0;
       border-radius: 4px 0 0 4px;
       height: 48px;
-      width: 630px;
+      width: 610px;
 
       font-family: Roboto;
       font-size: 18px;
       font-weight: normal;
       font-stretch: normal;
       font-style: normal;
-      line-height: 1.33;
       letter-spacing: 0.23px;
       color: rgba(255, 255, 255, 0.6);
 
       background-color: #000000;
     }
 
-    &Buttom {
+    &Button {
       display: inline-block;
       vertical-align: middle;
-
       background-color: #64656a;
       border: 0;
       padding: 0 0;
       border-radius: 0 4px 4px 0;
       height: 48px;
       width: 65px;
+
+      > img {
+        transform: rotate(90deg);
+      }
     }
   }
 
-  &Help {
-    display: inline-block;
-    vertical-align: middle;
-    height: 32px;
-  }
+  // &Help {
+  //   display: inline-block;
+  //   vertical-align: middle;
+  //   height: 32px;
+  //   padding: 0 0;
+  // }
   &Notification {
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 35px;
-    height: 32px;
+    margin-left: 27px;
   }
 }
 

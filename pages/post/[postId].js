@@ -1,6 +1,6 @@
 import { Card } from "@mui/material";
 import { useRouter } from "next/router";
-import styles from "../../styles/Home.module.scss";
+import styles from "/styles/Home.module.scss";
 
 export default function Post() {
   const router = useRouter();
