@@ -1,5 +1,7 @@
 import styles from "../styles/Home.module.scss";
 import Link from "next/link";
+import HelpIcon from "@mui/icons-material/Help";
+import IconButton from "@mui/material/IconButton";
 
 export default function HeaderBar() {
   return (
@@ -12,7 +14,7 @@ export default function HeaderBar() {
           <form className={styles.headerSearch}>
             <input
               className={styles.headerSearchInput}
-              type="search"
+              type="text"
               placeholder="Search"
             />
             <button className={styles.headerSearchButtom} type="submit">
@@ -25,9 +27,13 @@ export default function HeaderBar() {
           </form>
         </div>
         <div>
-          <Link href="#" className={styles.headerHelp}>
+          {/* < href="#" className={styles.headerHelp}>
             <img src="../header/help.svg" alt="help" />
-          </Link>
+          </Link> */}
+          <IconButton>
+            <HelpIcon sx={{ color: "white" }} />
+          </IconButton>
+
           <Link href="#" className={styles.headerNotification}>
             <img src="../header/notifications.svg" alt="notifications" />
           </Link>

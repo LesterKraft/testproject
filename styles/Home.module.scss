@@ -22,7 +22,6 @@
     margin-left: 159px;
 
     &Input {
-      display: inline-block;
       vertical-align: middle;
       padding: 12px 24px;
 
@@ -39,7 +38,6 @@
       line-height: 1.33;
       letter-spacing: 0.23px;
       color: rgba(255, 255, 255, 0.6);
-      // text-justify: center;
 
       background-color: #000000;
     }
@@ -50,6 +48,7 @@
 
       background-color: #64656a;
       border: 0;
+      padding: 0 0;
       border-radius: 0 4px 4px 0;
       height: 48px;
       width: 65px;
@@ -59,11 +58,13 @@
   &Help {
     display: inline-block;
     vertical-align: middle;
+    height: 32px;
   }
   &Notification {
     display: inline-block;
     vertical-align: middle;
     margin-left: 35px;
+    height: 32px;
   }
 }
 
