@@ -5,17 +5,17 @@ export default function HeaderBar() {
   return (
     <>
       <header className={styles.header}>
-        <div className={styles.headerFirst}>
-          <Link href="/" className={styles.headerFirstLogo}>
+        <div>
+          <Link href="/" className={styles.headerLogo}>
             Health Shared
           </Link>
-          <form className={styles.headerFirstSearch}>
+          <form className={styles.headerSearch}>
             <input
-              className={styles.headerFirstSearchInput}
+              className={styles.headerSearchInput}
               type="search"
               placeholder="Search"
             />
-            <button className={styles.headerFirstSearchButtom} type="submit">
+            <button className={styles.headerSearchButtom} type="submit">
               <img
                 style={{ transform: "rotate(90deg)" }}
                 src="../header/search.svg"

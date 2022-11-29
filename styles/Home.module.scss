@@ -6,44 +6,53 @@
   padding: 20px 30px;
   background-color: #212121;
 
-  &First {
-    &Logo {
+  &Logo {
+    display: inline-block;
+    vertical-align: middle;
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 500;
+    color: #fff;
+  }
+
+  &Search {
+    display: inline-block;
+    vertical-align: middle;
+
+    margin-left: 159px;
+
+    &Input {
       display: inline-block;
       vertical-align: middle;
+      padding: 12px 24px;
+
+      border: 0;
+      border-radius: 4px 0 0 4px;
+      height: 48px;
+      width: 630px;
+
       font-family: Roboto;
-      font-size: 24px;
-      font-weight: 500;
-      color: #fff;
+      font-size: 18px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.33;
+      letter-spacing: 0.23px;
+      color: rgba(255, 255, 255, 0.6);
+      // text-justify: center;
+
+      background-color: #000000;
     }
 
-    &Search {
+    &Buttom {
       display: inline-block;
       vertical-align: middle;
 
-      margin-left: 159px;
-
-      &Input {
-        display: inline-block;
-        vertical-align: middle;
-        padding: 0 0;
-        border: 0;
-        border-radius: 4px 0 0 4px;
-        height: 48px;
-        width: 500px;
-
-        // background-color: #000000;
-      }
-
-      &Buttom {
-        display: inline-block;
-        vertical-align: middle;
-        padding: 0 0;
-        background-color: #64656a;
-        border: 0;
-        border-radius: 0 4px 4px 0;
-        height: 48px;
-        width: 60px;
-      }
+      background-color: #64656a;
+      border: 0;
+      border-radius: 0 4px 4px 0;
+      height: 48px;
+      width: 65px;
     }
   }
 
