@@ -2,31 +2,59 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 88px;
+  height: 88px;
   padding: 20px 30px;
   background-color: #212121;
 
-  &Logo {
-    font-family: Roboto;
-    font-size: 24px;
-    font-weight: 500;
-    color: #fff;
-  }
-  &Search {
-    width: 765px;
-    margin: auto;
-    // height: 48px;
+  &First {
+    &Logo {
+      display: inline-block;
+      vertical-align: middle;
+      font-family: Roboto;
+      font-size: 24px;
+      font-weight: 500;
+      color: #fff;
+    }
 
-    &Input {
-      border: 0;
-      height: 48px;
-      width: 700px;
-      // background-color: #000000;
+    &Search {
+      display: inline-block;
+      vertical-align: middle;
+
+      margin-left: 159px;
+
+      &Input {
+        display: inline-block;
+        vertical-align: middle;
+        padding: 0 0;
+        border: 0;
+        border-radius: 4px 0 0 4px;
+        height: 48px;
+        width: 500px;
+
+        // background-color: #000000;
+      }
+
+      &Buttom {
+        display: inline-block;
+        vertical-align: middle;
+        padding: 0 0;
+        background-color: #64656a;
+        border: 0;
+        border-radius: 0 4px 4px 0;
+        height: 48px;
+        width: 60px;
+      }
     }
-    &Buttom {
-      height: 48px;
-      width: 65px;
-    }
+  }
+
+  &Help {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  &Notification {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 35px;
   }
 }
 

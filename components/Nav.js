@@ -5,25 +5,33 @@ export default function HeaderBar() {
   return (
     <>
       <header className={styles.header}>
-        <Link href="/" className={styles.headerLogo}>
-          Health Shared
-        </Link>
-        <form className={styles.headerSearch}>
-          <input
-            className={styles.headerSearchInput}
-            type="search"
-            placeholder="Search"
-          />
-          <button className={styles.headerSearchButtom} type="submit">
-            <img src="../header/search.svg" alt="Кнопка «search»" />
-          </button>
-        </form>
-        <Link href="#" className={styles.headerHelp}>
-          <img src="../header/help.svg" alt="help" />
-        </Link>
-        <Link href="#" className={styles.headerNotification}>
-          <img src="../header/notifications.svg" alt="notifications" />
-        </Link>
+        <div className={styles.headerFirst}>
+          <Link href="/" className={styles.headerFirstLogo}>
+            Health Shared
+          </Link>
+          <form className={styles.headerFirstSearch}>
+            <input
+              className={styles.headerFirstSearchInput}
+              type="search"
+              placeholder="Search"
+            />
+            <button className={styles.headerFirstSearchButtom} type="submit">
+              <img
+                style={{ transform: "rotate(90deg)" }}
+                src="../header/search.svg"
+                alt="Кнопка «search»"
+              />
+            </button>
+          </form>
+        </div>
+        <div>
+          <Link href="#" className={styles.headerHelp}>
+            <img src="../header/help.svg" alt="help" />
+          </Link>
+          <Link href="#" className={styles.headerNotification}>
+            <img src="../header/notifications.svg" alt="notifications" />
+          </Link>
+        </div>
       </header>
     </>
   );
