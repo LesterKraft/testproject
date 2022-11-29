@@ -1,4 +1,5 @@
 import Head from "next/head";
+import DisplayMenu from "./DMenu";
 import HeaderBar from "./Nav";
 
 export default function Layout({ children, title, description, keywords }) {
@@ -14,7 +15,7 @@ export default function Layout({ children, title, description, keywords }) {
       </Head>
       <HeaderBar />
       <div className="layoutGrid">
-        <div />
+        <DisplayMenu />
         <div>{children}</div>
       </div>
     </>
