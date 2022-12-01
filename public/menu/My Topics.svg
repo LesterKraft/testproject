@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+    <defs>
+        <path id="prefix__a" d="M4 6v14h14c0 1.054-.816 1.918-1.85 1.995L16 22H4c-1.054 0-1.918-.816-1.995-1.85L2 20V8c0-1.105.895-2 2-2zm16-4c1.105 0 2 .895 2 2v12c0 1.105-.895 2-2 2H8c-1.105 0-2-.895-2-2V4c0-1.105.895-2 2-2h12zm0 2H8v12h12V4zm-2 8v2h-8v-2h8zm0-3v2h-8V9h8zm0-3v2h-8V6h8z"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <mask id="prefix__b" fill="#fff">
+            <use xlink:href="#prefix__a"/>
+        </mask>
+        <g fill="#000" fill-opacity=".54" mask="url(#prefix__b)">
+            <path d="M0 0H24V24H0z"/>
+        </g>
+    </g>
+</svg>

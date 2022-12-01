@@ -1,9 +1,11 @@
+import { MenuItems } from "./MenuItems";
 import styles from "/styles/Home.module.scss";
 
 export default function DisplayMenu() {
   return (
     <nav className={styles.dMenu}>
-      <h1>fghfgytuutyu</h1>
+      <MenuItems name="Home" />
+      <MenuItems name="Communities" />
     </nav>
   );
 }
