@@ -116,7 +116,10 @@
 }
 
 .menuItem {
-  margin: 18px 0 0 8px;
+  margin: 10px 0 0 0;
+  padding: 0 0 0 24px;
+  width: 316px;
+  height: 48px;
   &Text {
     margin-left: 22px;
     font-family: Roboto;
@@ -127,6 +130,10 @@
     letter-spacing: 0.25px;
     color: rgba(0, 0, 0, 0.87);
   }
+}
+
+.menuPadding {
+  padding: 0 0 0 48px;
 }
 
 .cardWrapper {
