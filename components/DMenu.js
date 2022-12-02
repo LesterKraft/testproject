@@ -11,17 +11,21 @@ export default function DisplayMenu() {
       <MenuItems name="Communities" />
       <Divider />
       <MenuItems name="Profile" />
-      <MenuItems className={styles.menuPadding} name="My Answers" />
-      <MenuItems className={styles.menuPadding} name="My Stories" />
-      <MenuItems className={styles.menuPadding} name="My Playlists" />
-      <MenuItems className={styles.menuPadding} name="My Topics" />
-      <MenuItems className={styles.menuPadding} name="My Communities" />
-      <MenuItems className={styles.menuPadding} name="Favorites" />
+      <div className={styles.menuPadding}>
+        <MenuItems name="My Answers" />
+        <MenuItems name="My Stories" />
+        <MenuItems name="My Playlists" />
+        <MenuItems name="My Topics" />
+        <MenuItems name="My Communities" />
+        <MenuItems name="Favorites" />
+      </div>
       <Divider />
       <MenuItems name="Schedule" />
-      <MenuItems className={styles.menuPadding} name="My Availability" />
-      <MenuItems className={styles.menuPadding} name="My Practices" />
-      <MenuItems className={styles.menuPadding} name="My Appointments" />
+      <div className={styles.menuPadding}>
+        <MenuItems name="My Availability" />
+        <MenuItems name="My Practices" />
+        <MenuItems name="My Appointments" />
+      </div>
       <Divider />
       <MenuItems name="Settings" />
       <MenuItems name="Logout" />
