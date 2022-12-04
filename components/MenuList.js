@@ -12,7 +12,7 @@ export default function MenuList() {
             {list.divider && <Divider />}
             <MenuItem className={styles.menuItem} href={list.url}>
               <img
-                className={list.nested ? "menuPadding" : ""}
+                className={list.nested ? styles.menuPadding : styles}
                 src={list.icon}
                 alt={list.name}
                 // style={{ padding: "0 0 0 22px" }}
