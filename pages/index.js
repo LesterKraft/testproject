@@ -1,3 +1,5 @@
+import PostsPath from "../components/PostsPath";
+
 export default function index() {
-  return <h1>Hello</h1>;
+  return <PostsPath></PostsPath>;
 }

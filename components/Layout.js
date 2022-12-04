@@ -16,7 +16,7 @@ export default function Layout({ children, title, description, keywords }) {
       <HeaderBar />
       <div className="layoutGrid">
         <DisplayMenu />
-        <div>{children}</div>
+        <main>{children}</main>
       </div>
     </>
   );

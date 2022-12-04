@@ -1,4 +1,3 @@
-import MenuItem from "@mui/material/MenuItem";
 import styles from "/styles/Home.module.scss";
 import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
@@ -12,17 +11,6 @@ const theme = createTheme({
     },
   },
 });
-
-export function MenuItems({ name, icon = "/menu/" + name + ".svg" }) {
-  return (
-    <>
-      <MenuItem className={styles.menuItem}>
-        <img className={styles.menuItemIcon} src={icon} alt={name} />
-        <div className={styles.menuItemText}>{name}</div>
-      </MenuItem>
-    </>
-  );
-}
 
 export function LoginItems({ avatar, name, profession }) {
   return (
