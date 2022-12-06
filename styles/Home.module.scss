@@ -142,9 +142,11 @@
   font-style: normal;
   letter-spacing: 0.25px;
   color: rgba(0, 0, 0, 0.6);
+  text-transform: capitalize;
 }
 
 .breadLastCrumbs {
+  text-transform: capitalize;
   font-family: Roboto;
   font-size: 14px;
   font-weight: normal;

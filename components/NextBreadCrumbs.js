@@ -1,5 +1,5 @@
 import Breadcrumbs from "@mui/material/Breadcrumbs";
-import Link from "@mui/material/Link";
+import Link from "next/link";
 import Typography from "@mui/material/Typography";
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
@@ -80,23 +80,14 @@ function Crumb({ text: defaultText, textGenerator, href, last = false }) {
 
   if (last) {
     return (
-      <Typography
-        className={styles.breadLastCrumbs}
-        sx={{ textTransform: "capitalize" }}
-        color="text.primary"
-      >
+      <Typography className={styles.breadLastCrumbs} color="text.primary">
         {text}
       </Typography>
     );
   }
 
   return (
-    <Link
-      sx={{ textTransform: "capitalize" }}
-      underline="hover"
-      color="inherit"
-      href={href}
-    >
+    <Link underline="hover" color="inherit" href={href}>
       {text}
     </Link>
   );
