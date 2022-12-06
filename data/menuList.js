@@ -2,14 +2,14 @@ const menulist = [
   {
     name: "Home",
     icon: "/menu/Home.svg",
-    url: "#",
+    url: "/",
     divider: true,
     nested: false,
   },
   {
     name: "Communities",
     icon: "/menu/Communities.svg",
-    url: "#",
+    url: "/questions",
     nested: false,
   },
   {

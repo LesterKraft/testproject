@@ -1,6 +1,7 @@
 import Head from "next/head";
 import DisplayMenu from "./DMenu";
 import HeaderBar from "./Nav";
+import NextBreadcrumbs from "./NextBreadCrumbs";
 
 export default function Layout({ children, title, description, keywords }) {
   return (
@@ -16,7 +17,10 @@ export default function Layout({ children, title, description, keywords }) {
       <HeaderBar />
       <div className="layoutGrid">
         <DisplayMenu />
-        <main>{children}</main>
+        <main>
+          <NextBreadcrumbs />
+          {children}
+        </main>
       </div>
     </>
   );
