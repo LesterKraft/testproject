@@ -3,6 +3,7 @@ import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
+import styles from "/styles/Home.module.scss";
 
 const _defaultGetTextGenerator = (param, query) => null;
 const _defaultGetDefaultTextGenerator = (path) => path;
@@ -51,7 +52,11 @@ export default function NextBreadcrumbs({
   );
 
   return (
-    <Breadcrumbs separator=">" aria-label="breadcrumb">
+    <Breadcrumbs
+      className={styles.breadCrumbs}
+      separator=">"
+      aria-label="breadcrumb"
+    >
       {breadcrumbs.map((crumb, idx) => (
         <Crumb {...crumb} key={idx} last={idx === breadcrumbs.length - 1} />
       ))}
@@ -75,7 +80,11 @@ function Crumb({ text: defaultText, textGenerator, href, last = false }) {
 
   if (last) {
     return (
-      <Typography sx={{ textTransform: "capitalize" }} color="text.primary">
+      <Typography
+        className={styles.breadLastCrumbs}
+        sx={{ textTransform: "capitalize" }}
+        color="text.primary"
+      >
         {text}
       </Typography>
     );
