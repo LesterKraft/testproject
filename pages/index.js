@@ -1,7 +1,10 @@
-export default function index() {
+const Home = () => {
   return (
-    <>
-      <h1>Home</h1>
-    </>
-  );
+    <div >
+      <div>Public</div>
+      <div><a href="/private">Go to Private</a></div>
+    </div>
+  )
 }
+
+export default Home;

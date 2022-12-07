@@ -7,7 +7,7 @@ const menulist = [
     nested: false,
   },
   {
-    name: "Communities",
+    name: "Questions",
     icon: "/menu/Communities.svg",
     url: "/questions",
     nested: false,
