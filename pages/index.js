@@ -1,4 +1,3 @@
-import "../auth/ui";
 import firebaseEmailPasswordAuth from "../auth/firebaseEmailPasswordAuth";
 import { useState } from "react";
 import createEmailPasswordAccount from "../auth/createEmailPassworAccount";

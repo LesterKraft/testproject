@@ -1,7 +1,6 @@
 import styles from "/styles/Home.module.scss";
 import Link from "next/link";
 import IconButton from "@mui/material/IconButton";
-import AuthBar from "./AuthBar";
 import ButtonLogin from "./ButtonLogin";
 import ButtonSignUp from "./ButtonSignUp";
 import Stack from "@mui/material/Stack";

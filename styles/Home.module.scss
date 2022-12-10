@@ -164,10 +164,19 @@
   padding: 0 0 0 22px;
 }
 
-.cardWrapper {
-  margin-top: 56px;
-  width: 1084px;
-  border-radius: 8;
+.dialog {
+  padding: 0 30px 30px 30px;
+
+  &Input {
+    display: flex;
+    justify-items: center;
+    margin-top: 30px;
+  }
+
+  &Button {
+    width: 230.7px;
+    margin-top: 30px;
+  }
 }
 
 .defaultCard {
