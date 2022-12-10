@@ -4,7 +4,6 @@ import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
-import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -61,6 +60,15 @@ BootstrapDialogTitle.propTypes = {
 };
 
 export default function ButtonLogin() {
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   const [isSignedIn, setIsSignedIn] = useState(false);
   function formSubmit(e) {
     e.preventDefault();
@@ -79,17 +87,8 @@ export default function ButtonLogin() {
       });
   }
 
-  const [open, setOpen] = React.useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   return (
-    <div>
+    <>
       <ThemeProvider theme={theme}>
         <Button
           color="black"
@@ -110,16 +109,15 @@ export default function ButtonLogin() {
           id="customized-dialog-title"
           onClose={handleClose}
         >
-          Sign in to continue.
+          Sign in please.
         </BootstrapDialogTitle>{" "}
-        <Divider />
         {!isSignedIn ? (
           <form className={styles.dialog} onSubmit={(e) => formSubmit(e)}>
             <TextField
               className={styles.dialogInput}
               id="email"
               label="Email"
-              type="email"
+              type="text"
               autoComplete="current-login"
             />
             <TextField
@@ -136,13 +134,13 @@ export default function ButtonLogin() {
               size="large"
               variant="contained"
             >
-              LOGIN
+              LOG IN
             </Button>
           </form>
         ) : (
           <h1>Hello user!</h1>
         )}
       </BootstrapDialog>
-    </div>
+    </>
   );
 }
