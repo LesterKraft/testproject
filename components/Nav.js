@@ -1,6 +1,10 @@
 import styles from "/styles/Home.module.scss";
 import Link from "next/link";
 import IconButton from "@mui/material/IconButton";
+import AuthBar from "./AuthBar";
+import ButtonLogin from "./ButtonLogin";
+import ButtonSignUp from "./ButtonSignUp";
+import Stack from "@mui/material/Stack";
 
 export default function HeaderBar() {
   return (
@@ -22,12 +26,16 @@ export default function HeaderBar() {
           </form>
         </div>
         <div>
-          <IconButton>
+          {/* <IconButton>
             <img src="/header/help.svg" alt="help" />
           </IconButton>
           <IconButton className={styles.headerNotification}>
             <img src="/header/notifications.svg" alt="notifications" />
-          </IconButton>
+          </IconButton> */}
+          <Stack spacing={2} direction="row">
+            <ButtonLogin />
+            <ButtonSignUp />
+          </Stack>
         </div>
       </header>
     </>

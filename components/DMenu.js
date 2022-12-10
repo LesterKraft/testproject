@@ -1,4 +1,4 @@
-import { LoginItems } from "./MenuLogin.js";
+import { LoginItems } from "./LoginItems";
 import styles from "/styles/Home.module.scss";
 import MenuList from "./MenuList.js";
 
