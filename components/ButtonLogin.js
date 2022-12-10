@@ -81,9 +81,8 @@ export default function ButtonLogin() {
         setIsSignedIn(true);
       })
       .catch((err) => {
-        // createEmailPasswordAccount(email, password)
-        //   .then((res) => console.log(res))
-        //   .catch((err) => console.error(err));
+        console.log(err);
+        console.log("erorrrrrrrrrr");
       });
   }
 
@@ -100,18 +99,18 @@ export default function ButtonLogin() {
         </Button>
       </ThemeProvider>
 
-      <BootstrapDialog
-        onClose={handleClose}
-        aria-labelledby="customized-dialog-title"
-        open={open}
-      >
-        <BootstrapDialogTitle
-          id="customized-dialog-title"
+      {!isSignedIn ? (
+        <BootstrapDialog
           onClose={handleClose}
+          aria-labelledby="customized-dialog-title"
+          open={open}
         >
-          Sign in please.
-        </BootstrapDialogTitle>{" "}
-        {!isSignedIn ? (
+          <BootstrapDialogTitle
+            id="customized-dialog-title"
+            onClose={handleClose}
+          >
+            Sign in please.
+          </BootstrapDialogTitle>{" "}
           <form className={styles.dialog} onSubmit={(e) => formSubmit(e)}>
             <TextField
               className={styles.dialogInput}
@@ -137,10 +136,8 @@ export default function ButtonLogin() {
               LOG IN
             </Button>
           </form>
-        ) : (
-          <h1>Hello user!</h1>
-        )}
-      </BootstrapDialog>
+        </BootstrapDialog>
+      ) : null}
     </>
   );
 }
