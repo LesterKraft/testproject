@@ -34,7 +34,7 @@ function BootstrapDialogTitle(props) {
   const { children, onClose, ...other } = props;
 
   return (
-    <DialogTitle sx={{ m: 0, p: 1 }} {...other}>
+    <DialogTitle sx={{ m: 0, p: 1.6 }} {...other}>
       {children}
       {onClose ? (
         <IconButton
@@ -60,6 +60,7 @@ BootstrapDialogTitle.propTypes = {
 };
 
 export default function ButtonLogin() {
+  const [status, setStatus] = useState("Please Login");
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -79,13 +80,16 @@ export default function ButtonLogin() {
         console.log(res);
         console.log("user successfully signed in");
         setIsSignedIn(true);
+        setError(false);
       })
       .catch((err) => {
         console.log(err);
-        console.log("erorrrrrrrrrr");
+        console.log("erorr");
+        setStatus("incorrect email or password");
+        setError(true);
       });
   }
-
+  const [error, setError] = useState(false);
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -98,7 +102,6 @@ export default function ButtonLogin() {
           LOGIN
         </Button>
       </ThemeProvider>
-
       {!isSignedIn ? (
         <BootstrapDialog
           onClose={handleClose}
@@ -106,11 +109,12 @@ export default function ButtonLogin() {
           open={open}
         >
           <BootstrapDialogTitle
-            id="customized-dialog-title"
+            className={error ? styles.dialogError : styles.dialogTitle}
+            id="title"
             onClose={handleClose}
           >
-            Sign in please.
-          </BootstrapDialogTitle>{" "}
+            {status}
+          </BootstrapDialogTitle>
           <form className={styles.dialog} onSubmit={(e) => formSubmit(e)}>
             <TextField
               className={styles.dialogInput}

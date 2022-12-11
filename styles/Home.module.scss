@@ -164,6 +164,26 @@
   padding: 0 0 0 22px;
 }
 
+.dialogTitle {
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: 1.25px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.dialogError {
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: 1.25px;
+  color: rgb(255, 0, 0);
+}
+
 .dialog {
   padding: 0 30px 30px 30px;
 
@@ -175,6 +195,7 @@
 
   &Button {
     width: 230.7px;
+    height: 50px;
     margin-top: 30px;
   }
 }
