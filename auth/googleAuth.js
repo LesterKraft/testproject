@@ -11,19 +11,23 @@ export default function googleAuth() {
     appId: "1:985598119305:web:53e0a5c651066df80c6558",
     measurementId: "G-3W4PYX48WX",
   });
-  const auth = getAuth(firebaseApp);
+  const auth = getAuth();
   const provider = new GoogleAuthProvider();
 
   signInWithPopup(auth, provider)
     .then((result) => {
+      console.log(result);
+      console.log("user successfully signed");
       // This gives you a Google Access Token. You can use it to access the Google API.
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
+
       // ...
     })
     .catch((error) => {
+      console.log(error);
       // Handle Errors here.
       const errorCode = error.code;
       const errorMessage = error.message;
