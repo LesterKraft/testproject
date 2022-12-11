@@ -4,12 +4,13 @@ import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
-import DialogContent from "@mui/material/DialogContent";
-import DialogActions from "@mui/material/DialogActions";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
-import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import TextField from "@mui/material/TextField";
+import styles from "/styles/Home.module.scss";
+import { useState } from "react";
+import createEmailPasswordAccount from "../auth/createEmailPassworAccount";
 
 const theme = createTheme({
   palette: {
@@ -33,7 +34,7 @@ function BootstrapDialogTitle(props) {
   const { children, onClose, ...other } = props;
 
   return (
-    <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
+    <DialogTitle sx={{ m: 0, p: 1.6 }} {...other}>
       {children}
       {onClose ? (
         <IconButton
@@ -42,7 +43,7 @@ function BootstrapDialogTitle(props) {
           sx={{
             position: "absolute",
             right: 8,
-            top: 8,
+            top: 5,
             color: (theme) => theme.palette.grey[500],
           }}
         >
@@ -58,7 +59,8 @@ BootstrapDialogTitle.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
 
-export default function ButtonSignUp() {
+export default function ButtonLogin() {
+  const [status, setStatus] = useState("Sign Up Please");
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -68,8 +70,28 @@ export default function ButtonSignUp() {
     setOpen(false);
   };
 
+  const [isSignedIn, setIsSignedIn] = useState(false);
+  function formSubmit(e) {
+    e.preventDefault();
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    createEmailPasswordAccount(email, password)
+      .then((res) => {
+        console.log(res);
+        console.log("user successfully signed in");
+        setIsSignedIn(true);
+        setError(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        console.log("erorr");
+        setStatus("incorrect email or password");
+        setError(true);
+      });
+  }
+  const [error, setError] = useState(false);
   return (
-    <div>
+    <>
       <ThemeProvider theme={theme}>
         <Button
           color="red"
@@ -80,19 +102,46 @@ export default function ButtonSignUp() {
           SIGN UP
         </Button>
       </ThemeProvider>
-
-      <BootstrapDialog
-        onClose={handleClose}
-        aria-labelledby="customized-dialog-title"
-        open={open}
-      >
-        <BootstrapDialogTitle
-          id="customized-dialog-title"
+      {!isSignedIn ? (
+        <BootstrapDialog
           onClose={handleClose}
+          aria-labelledby="customized-dialog-title"
+          open={open}
         >
-          LOGIN
-        </BootstrapDialogTitle>
-      </BootstrapDialog>
-    </div>
+          <BootstrapDialogTitle
+            className={error ? styles.dialogError : styles.dialogTitle}
+            id="title"
+            onClose={handleClose}
+          >
+            {status}
+          </BootstrapDialogTitle>
+          <form className={styles.dialog} onSubmit={(e) => formSubmit(e)}>
+            <TextField
+              className={styles.dialogInput}
+              id="email"
+              label="Email"
+              type="text"
+              autoComplete="current-login"
+            />
+            <TextField
+              className={styles.dialogInput}
+              id="password"
+              label="Password"
+              type="password"
+              autoComplete="current-password"
+            />
+            <Button
+              className={styles.dialogButton}
+              type="submit"
+              value="submit"
+              size="large"
+              variant="contained"
+            >
+              SIGN UP
+            </Button>
+          </form>
+        </BootstrapDialog>
+      ) : null}
+    </>
   );
 }
