@@ -11,6 +11,7 @@ import TextField from "@mui/material/TextField";
 import styles from "/styles/Home.module.scss";
 import firebaseEmailPasswordAuth from "../auth/firebaseEmailPasswordAuth";
 import { useState } from "react";
+import googleAuth from "../auth/googleAuth";
 
 const theme = createTheme({
   palette: {
@@ -139,6 +140,19 @@ export default function ButtonLogin() {
             >
               LOG IN
             </Button>
+            <ThemeProvider theme={theme}>
+              <Button
+                className={styles.dialogButton}
+                size="large"
+                variant="contained"
+                color="black"
+                onClick={() => {
+                  googleAuth();
+                }}
+              >
+                Google Authorization
+              </Button>
+            </ThemeProvider>
           </form>
         </BootstrapDialog>
       ) : null}

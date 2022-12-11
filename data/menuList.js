@@ -90,8 +90,9 @@ const menulist = [
   {
     name: "Logout",
     icon: "/menu/Logout.svg",
-    url: "#",
+    url: "/",
     nested: false,
+    log: true,
   },
 ];
 export default menulist;
