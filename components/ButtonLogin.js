@@ -82,7 +82,7 @@ export default function ButtonLogin(props) {
     firebaseEmailPasswordAuth(email, password)
       .then((res) => {
         console.log(res);
-        props.signedUser(res)
+        // props.signedUser(res)
         console.log("user successfully signed in");
         setIsSignedIn(true);
         setError(false);
