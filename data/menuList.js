@@ -83,7 +83,7 @@ const menulist = [
   {
     name: "Settings",
     icon: "/menu/Settings.svg",
-    url: "#",
+    url: "/",
     divider: true,
     nested: false,
   },

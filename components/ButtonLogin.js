@@ -68,6 +68,8 @@ export default function ButtonLogin() {
     setOpen(true);
   };
   const handleClose = () => {
+    setStatus("Please Login");
+    setError(false);
     setOpen(false);
   };
   const [error, setError] = useState(false);
@@ -148,7 +150,14 @@ export default function ButtonLogin() {
                 variant="contained"
                 color="black"
                 onClick={() => {
-                  googleAuth();
+                  googleAuth()
+                    .then((user) => {
+                      console.log(user);
+                      handleClose();
+                    })
+                    .catch((error) => {
+                      console.error(error);
+                    });
                 }}
               >
                 Google Authorization
