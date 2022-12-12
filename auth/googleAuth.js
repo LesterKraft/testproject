@@ -23,6 +23,7 @@ export default async function googleAuth() {
       const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
+      return user;
 
       // ...
     })
