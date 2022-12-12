@@ -1,7 +1,7 @@
-import firebase from "firebase/compat/app";
-import "firebase/compat/auth";
+import firebase from "firebase/app";
+import "firebase/auth";
 
-const firebaseConfig = {
+const config = {
   apiKey: "AIzaSyCZ3_ouqAJRfOTYMwfnZDwFMCOmupI3KOY",
   authDomain: "testproject-5f593.firebaseapp.com",
   projectId: "testproject-5f593",
@@ -11,10 +11,8 @@ const firebaseConfig = {
   measurementId: "G-3W4PYX48WX",
 };
 
-// export const app = initializeApp(firebaseConfig);
-// export const auth = getAuth(app);
 export default function initFirebase() {
   if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
+    firebase.initializeApp(config);
   }
 }

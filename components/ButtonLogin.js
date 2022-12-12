@@ -70,7 +70,7 @@ export default function ButtonLogin() {
   const handleClose = () => {
     setOpen(false);
   };
-
+  const [error, setError] = useState(false);
   const [isSignedIn, setIsSignedIn] = useState(false);
   function formSubmit(e) {
     e.preventDefault();
@@ -91,7 +91,7 @@ export default function ButtonLogin() {
         setError(true);
       });
   }
-  const [error, setError] = useState(false);
+
   return (
     <>
       <ThemeProvider theme={theme}>

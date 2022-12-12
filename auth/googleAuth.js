@@ -1,7 +1,7 @@
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 
-export default function googleAuth() {
+export default async function googleAuth() {
   const firebaseApp = initializeApp({
     apiKey: "AIzaSyCZ3_ouqAJRfOTYMwfnZDwFMCOmupI3KOY",
     authDomain: "testproject-5f593.firebaseapp.com",
