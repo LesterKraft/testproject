@@ -60,7 +60,7 @@ BootstrapDialogTitle.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
 
-export default function ButtonLogin() {
+export default function ButtonLogin(props) {
   const [status, setStatus] = useState("Please Login");
   const [open, setOpen] = React.useState(false);
 
@@ -80,6 +80,7 @@ export default function ButtonLogin() {
     firebaseEmailPasswordAuth(email, password)
       .then((res) => {
         console.log(res);
+        props.signedUser(res)
         console.log("user successfully signed in");
         setIsSignedIn(true);
         setError(false);
