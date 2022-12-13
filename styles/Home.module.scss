@@ -201,6 +201,55 @@
   }
 }
 
-.defaultCard {
+.card {
+  margin-top: 19px;
+  margin-right: 24px;
+  max-width: 1084px;
   padding: 27px 80px 24px 80px;
+
+  &Top {
+    &Icon {
+      float: left;
+      width: 48px;
+      height: 48px;
+      margin-top: 5px;
+    }
+
+    &Question {
+      margin-left: 72px;
+      vertical-align: top;
+
+      font-family: Roboto;
+      font-size: 14px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      letter-spacing: 1.25px;
+      color: rgba(0, 0, 0, 0.6);
+    }
+
+    &Title {
+      margin-left: 72px;
+
+      font-family: Roboto;
+      font-size: 34px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      letter-spacing: 0.25px;
+      color: rgba(0, 0, 0, 0.87);
+    }
+  }
+
+  &Text {
+    margin-top: 22px;
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.78;
+    letter-spacing: 0.23px;
+    color: rgba(0, 0, 0, 0.87);
+  }
 }
