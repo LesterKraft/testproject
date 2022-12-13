@@ -33,3 +33,20 @@ export default function MenuList() {
     </div>
   ));
 }
+
+export function MenuListAuthOff() {
+  return menulist.map((lis) => (
+    <div key={menulist.indexOf(lis)}>
+      {lis.notauth && (
+        <MenuItem component={Link} className={styles.menuItem} href={lis.url}>
+          <img
+            className={lis.nested ? styles.menuPadding : null}
+            src={lis.icon}
+            alt={lis.name}
+          />
+          <div className={styles.menuItemText}>{lis.name}</div>
+        </MenuItem>
+      )}
+    </div>
+  ));
+}

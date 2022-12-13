@@ -5,12 +5,14 @@ const menulist = [
     url: "/",
     divider: true,
     nested: false,
+    notauth: true,
   },
   {
     name: "Questions",
     icon: "/menu/Communities.svg",
     url: "/questions",
     nested: false,
+    notauth: true,
   },
   {
     name: "Profile",

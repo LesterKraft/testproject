@@ -1,6 +1,6 @@
 import { LoginItems } from "./LoginItems";
 import styles from "/styles/Home.module.scss";
-import MenuList from "./MenuList.js";
+import MenuList, { MenuListAuthOff } from "./MenuList.js";
 import { useState } from "react";
 import { getAuth } from "firebase/auth";
 
@@ -15,7 +15,7 @@ export default function DisplayMenu() {
     <nav className={styles.dMenu}>
       {!currentUser ? (
         <>
-          <MenuList />
+          <MenuListAuthOff />
         </>
       ) : (
         <>
