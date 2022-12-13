@@ -252,4 +252,26 @@
     letter-spacing: 0.23px;
     color: rgba(0, 0, 0, 0.87);
   }
+
+  &Tags {
+    margin-top: 20px;
+
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: 0.4px;
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  &TagsWrapper {
+    display: flex;
+    margin-top: 12px;
+  }
+  &Divider {
+    margin-left: -80px;
+    margin-right: -80px;
+  }
 }
