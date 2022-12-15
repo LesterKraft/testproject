@@ -87,13 +87,13 @@ export default function CardQuestion() {
               >
                 Save to
               </Button>
-              <IconButton aria-label="down">
+              <IconButton aria-label="down" size="large">
                 <ForwardIcon />
               </IconButton>
-              <IconButton aria-label="share">
+              <IconButton aria-label="share" size="large">
                 <ShareIcon />
               </IconButton>
-              <IconButton aria-label="more">
+              <IconButton aria-label="more" size="large">
                 <MoreHorizIcon />
               </IconButton>
             </div>
