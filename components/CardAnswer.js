@@ -1,7 +1,12 @@
 import { Card, Divider, IconButton } from "@mui/material";
 import styles from "/styles/Home.module.scss";
 import CardHeader from "@mui/material/CardHeader";
-import Avatar from "@mui/material/Avatar";
+import Collapse from "@mui/material/Collapse";
+import { useState } from "react";
+import * as React from "react";
+import CardContent from "@mui/material/CardContent";
+
+// import Avatar from "@mui/material/Avatar";
 // import FileUploadIcon from "@mui/icons-material/FileUpload";
 import Button from "@mui/material/Button";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -11,6 +16,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 // import ForwardIcon from "@mui/icons-material/Forward";
 // import ShareIcon from "@mui/icons-material/Share";
 // import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import { styled } from "@mui/material/styles";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
@@ -27,8 +33,23 @@ const theme = createTheme({
     },
   },
 });
+const ExpandMore = styled((props) => {
+  const { expand, ...other } = props;
+  return <IconButton {...other} />;
+})(({ theme, expand }) => ({
+  transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
+  marginLeft: "auto",
+  transition: theme.transitions.create("transform", {
+    duration: theme.transitions.duration.shortest,
+  }),
+}));
 
 export default function CardAnswer() {
+  const [expanded, setExpanded] = React.useState(false);
+
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -43,25 +64,37 @@ export default function CardAnswer() {
             >
               1 Answer
             </Button>
-            <IconButton>
+            {/* <IconButton>
               <ExpandMoreIcon />
-            </IconButton>
+            </IconButton> */}
+
+            <ExpandMore
+              expand={expanded}
+              onClick={handleExpandClick}
+              aria-expanded={expanded}
+              aria-label="show more"
+            >
+              <ExpandMoreIcon />
+            </ExpandMore>
           </div>
           <Divider className={styles.answerDivider} />
-
-          <CardHeader
-            className={styles.cardHeader}
-            avatar={
-              <img
-                className={styles.cardHeaderAva}
-                src="/menu/ava.png"
-                alt="ava"
+          <Collapse in={expanded} timeout="auto" unmountOnExit>
+            <CardContent>
+              <CardHeader
+                className={styles.cardHeader}
+                avatar={
+                  <img
+                    className={styles.cardHeaderAva}
+                    src="/menu/ava.png"
+                    alt="ava"
+                  />
+                }
+                action={<IconButton aria-label="settings"></IconButton>}
+                title="Mr Usman Jaffer"
+                subheader="Vascular Surgeon"
               />
-            }
-            action={<IconButton aria-label="settings"></IconButton>}
-            title="Mr Usman Jaffer"
-            subheader="Vascular Surgeon"
-          />
+            </CardContent>
+          </Collapse>
         </Card>
       </ThemeProvider>
     </>
