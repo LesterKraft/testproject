@@ -1,7 +1,29 @@
 import { Card, Divider } from "@mui/material";
 import styles from "/styles/Home.module.scss";
+import Link from "next/link";
+import FileUploadIcon from "@mui/icons-material/FileUpload";
 import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
+import IconButton from "@mui/material/IconButton";
+import ForwardIcon from "@mui/icons-material/Forward";
+import ShareIcon from "@mui/icons-material/Share";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+
+const theme = createTheme({
+  palette: {
+    red: {
+      main: "#b71c1c",
+      contrastText: "#fff",
+    },
+
+    grey: {
+      main: "#4d4d4d",
+      contrastText: "#fff",
+    },
+  },
+});
 
 export default function CardQuestion() {
   const title = "How do I know if EVLA is right for me?";
@@ -22,19 +44,61 @@ export default function CardQuestion() {
         </div>
         <div className={styles.cardText}>{text}</div>
         <div className={styles.cardTags}>Tags</div>
-        <Stack className={styles.cardTagsWrapper} direction="row" spacing={2}>
-          <Button variant="contained" disabled>
-            Disabled
-          </Button>
-          <Button variant="contained" disabled>
-            Disabled
-          </Button>
-        </Stack>
-        {/* <div className={styles.cardTagsWrapper}></div> */}
-        <div className={styles.cardPhoto}>Related Photo</div>
 
+        <Link href="#" className={styles.cardTagsWrapper}>
+          EVLA
+        </Link>
+        <div className={styles.cardPhoto}>Related Photo</div>
+        <Link href="#" className={styles.cardPhotoWrapper}>
+          <img src="/card/attachment.svg" alt="help" />
+          <div>1038421.4564.png</div>
+        </Link>
         <div className={styles.cardViews}>32 views • 1 day ago</div>
         <Divider className={styles.cardDivider} />
+        <ThemeProvider theme={theme}>
+          <div className={styles.cardFooter}>
+            <div>
+              <Button
+                className={styles.cardFooterUploads}
+                color="red"
+                size="large"
+                aria-label="upvotes"
+                startIcon={<FileUploadIcon />}
+              >
+                3 Upvotes
+              </Button>
+              <Button
+                className={styles.cardFooterFavorites}
+                color="grey"
+                size="large"
+                aria-label="upvotes"
+                startIcon={<FavoriteBorderIcon />}
+              >
+                Favorites
+              </Button>
+            </div>
+            <div>
+              <Button
+                className={styles.cardFooterSave}
+                color="grey"
+                size="large"
+                aria-label="upvotes"
+                startIcon={<PlaylistAddIcon />}
+              >
+                Save to
+              </Button>
+              <IconButton aria-label="down">
+                <ForwardIcon />
+              </IconButton>
+              <IconButton aria-label="share">
+                <ShareIcon />
+              </IconButton>
+              <IconButton aria-label="more">
+                <MoreHorizIcon />
+              </IconButton>
+            </div>
+          </div>
+        </ThemeProvider>
       </Card>
     </>
   );

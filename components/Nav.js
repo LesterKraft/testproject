@@ -5,8 +5,7 @@ import ButtonLogin from "./ButtonLogin";
 import ButtonSignUp from "./ButtonSignUp";
 import Stack from "@mui/material/Stack";
 import { getAuth, signOut } from "firebase/auth";
-import { useEffect, useState } from "react";
-import Button from "@mui/material/Button";
+import { useState } from "react";
 
 export default function HeaderBar() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -15,9 +14,6 @@ export default function HeaderBar() {
     setCurrentUser(res);
   });
 
-  // function signedUser(res) {
-  //   setCurrentUser(res.user);
-  // }
   const logOut = () => {
     signOut(getAuth())
       .then(() => {
@@ -44,23 +40,23 @@ export default function HeaderBar() {
           </form>
         </div>
         <div>
-          {/* <IconButton>
-            <img src="/header/help.svg" alt="help" />
-          </IconButton>
-          <IconButton className={styles.headerNotification}>
-            <img src="/header/notifications.svg" alt="notifications" />
-          </IconButton> */}
           {!currentUser ? (
             <Stack spacing={2} direction="row">
               <ButtonLogin />
               <ButtonSignUp />
             </Stack>
           ) : (
-            <Button onClick={logOut}>SignOut</Button>
+            <>
+              <IconButton>
+                <img src="/header/help.svg" alt="help" />
+              </IconButton>
+              <IconButton className={styles.headerNotification}>
+                <img src="/header/notifications.svg" alt="notifications" />
+              </IconButton>
+            </>
           )}
         </div>
       </header>
     </>
   );
 }
-// signedUser={signedUser}
