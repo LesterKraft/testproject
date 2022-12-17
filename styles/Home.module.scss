@@ -494,8 +494,9 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    flex-wrap: wrap-reverse;
     height: 248px;
-    width: 292px;
+    min-width: 200px;
     border-radius: 10px;
     padding: 16px 16px 0 16px;
 
@@ -537,3 +538,8 @@
     }
   }
 }
+// @media (max-width: 1350px) {
+//   .:last-child {
+//     display: none;
+//   }
+// }
