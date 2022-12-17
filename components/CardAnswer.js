@@ -11,8 +11,7 @@ import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import EditIcon from "@mui/icons-material/Edit";
 import FileUploadIcon from "@mui/icons-material/FileUpload";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
+
 import ForwardIcon from "@mui/icons-material/Forward";
 import ShareIcon from "@mui/icons-material/Share";
 
@@ -78,41 +77,41 @@ export default function CardAnswer() {
             unmountOnExit
           >
             <Divider className={styles.answerDivider} />
-            <div className={styles.answer}>
+            <div className={styles.answerMain}>
               <CardHeader
-                className={styles.answerHeader}
+                className={styles.answerMainHeader}
                 avatar={
                   <img
-                    className={styles.answerHeaderAva}
+                    className={styles.answerMainHeaderAva}
                     src="/menu/ava.png"
                     alt="ava"
                   />
                 }
                 action={
                   <Button
-                    className={styles.answerHeaderEdit}
+                    className={styles.answerMainHeaderEdit}
                     color="red"
                     size="large"
                     aria-label="edit"
                     startIcon={
-                      <EditIcon className={styles.answerHeaderEditIcon} />
+                      <EditIcon className={styles.answerMainHeaderEditIcon} />
                     }
                   >
                     Edit
                   </Button>
                 }
                 title={
-                  <div className={styles.answerHeaderTitle}>
+                  <div className={styles.answerMainHeaderTitle}>
                     Mr Usman Jaffer
                   </div>
                 }
                 subheader={
-                  <div className={styles.answerHeaderSubheader}>
+                  <div className={styles.answerMainHeaderSubheader}>
                     Vascular Surgeon
                   </div>
                 }
               />
-              <div className={styles.answerText}>
+              <div className={styles.answerMainText}>
                 If you find yourself dealing with painful varicose veins,
                 cramping in your legs, swelling, or restless legs, chances are
                 good EVLA is right for you. EVLA focuses on veins that are
@@ -121,7 +120,7 @@ export default function CardAnswer() {
                 will be sure to come up with a treatment plan that caters to
                 your specific needs, not a generalized one-size-fits-all plan.
               </div>
-              <div className={styles.answerView}>1 view • Now</div>
+              <div className={styles.answerMainView}>1 view • Now</div>
               <div className={styles.cardFooter}>
                 <div>
                   <Button

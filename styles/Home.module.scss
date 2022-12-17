@@ -372,8 +372,9 @@
 }
 .answer {
   margin-top: 19px;
+  margin-right: 24px;
   max-width: 1084px;
-  padding: 16px 80px 0 80px;
+  padding: 16px 80px 16px 80px;
   border-radius: 10px;
 
   &Top {
@@ -395,67 +396,144 @@
   &Divider {
     margin-top: 16px;
   }
-  .Wrapper {
-    display: flex;
-    justify-content: space-between;
-  }
+
   &Box {
     margin-left: -80px;
     margin-right: -80px;
   }
-  &Header {
-    margin-left: 0px;
-    margin-right: 0;
-    padding: 0 0;
+  &Main {
+    padding: 16px 80px 0 80px;
+    &Header {
+      margin-left: 0px;
+      margin-right: 0;
+      padding: 0 0;
 
+      font-weight: 500;
+      letter-spacing: 0.23px;
+
+      &Ava {
+        height: 56px;
+        width: 56px;
+        border-radius: 50%;
+      }
+
+      &Title {
+        font-size: 18px;
+        font-weight: 500;
+
+        color: rgba(0, 0, 0, 0.87);
+      }
+
+      &Subheader {
+        font-size: 14px;
+        font-weight: normal;
+        letter-spacing: 0.25px;
+        color: rgba(0, 0, 0, 0.6);
+      }
+
+      &Edit {
+        transform: translate(0, 32%);
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 1.25px;
+
+        &Icon {
+          margin-right: 10px;
+        }
+      }
+    }
+    &Text {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: normal;
+
+      line-height: 1.78;
+      letter-spacing: 0.23px;
+      color: rgba(0, 0, 0, 0.87);
+    }
+    &View {
+      padding-top: 10px;
+      font-size: 14px;
+      font-weight: normal;
+      letter-spacing: 0.25px;
+      color: rgba(0, 0, 0, 0.6);
+    }
+  }
+}
+.line {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  margin-right: 24px;
+  &Text {
+    font-size: 20px;
     font-weight: 500;
-    letter-spacing: 0.23px;
+    letter-spacing: 0.25px;
+    color: var(--primary-900);
+  }
 
-    &Ava {
-      height: 56px;
-      width: 56px;
-      border-radius: 50%;
+  &More {
+    font-size: 14px;
+    font-weight: 500;
+
+    letter-spacing: 1.25px;
+    text-align: center;
+    color: #b71c1c;
+  }
+}
+
+.cards {
+  margin-top: 20px;
+  margin-bottom: 66px;
+  margin-right: 24px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+
+  &Wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 248px;
+    width: 292px;
+    border-radius: 10px;
+    padding: 16px 16px 0 16px;
+
+    &Name {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      color: rgba(0, 0, 0, 0.6);
     }
 
-    &Title {
+    &Question {
       font-size: 18px;
       font-weight: 500;
-
+      letter-spacing: 0.23px;
       color: rgba(0, 0, 0, 0.87);
     }
 
-    &Subheader {
+    &Info {
       font-size: 14px;
       font-weight: normal;
       letter-spacing: 0.25px;
       color: rgba(0, 0, 0, 0.6);
     }
 
-    &Edit {
-      transform: translate(0, 32%);
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 1.25px;
-
-      &Icon {
-        margin-right: 10px;
-      }
+    &Text {
+      font-size: 16px;
+      font-weight: normal;
+      letter-spacing: 0.15px;
+      color: rgba(0, 0, 0, 0.87);
     }
-  }
-  &Text {
-    margin-top: 20px;
-    font-size: 18px;
-    font-weight: normal;
 
-    line-height: 1.78;
-    letter-spacing: 0.23px;
-    color: rgba(0, 0, 0, 0.87);
-  }
-  &View {
-    padding-top: 10px;
-    font-size: 14px;
-    font-weight: normal;
-    letter-spacing: 0.25px;
-    color: rgba(0, 0, 0, 0.6);
+    &Answers {
+      font-size: 16px;
+      font-weight: normal;
+      letter-spacing: 0.15px;
+      color: #212121;
+      text-transform: none;
+      width: 116px;
+    }
   }
 }
