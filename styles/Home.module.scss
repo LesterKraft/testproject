@@ -9,8 +9,7 @@
   &Logo {
     display: inline-block;
     vertical-align: middle;
-    font-family: Roboto;
-    font-size: 24px;
+    font-size: 1.5em;
     font-weight: 500;
     color: #fff;
   }
@@ -27,12 +26,8 @@
       border-radius: 4px 0 0 4px;
       height: 48px;
       width: 550px;
-
-      font-family: Roboto;
-      font-size: 18px;
+      font-size: 1.125em;
       font-weight: normal;
-      font-stretch: normal;
-      font-style: normal;
       letter-spacing: 0.23px;
       color: rgba(255, 255, 255, 0.6);
 
@@ -82,22 +77,15 @@
 
   &Name {
     margin-top: 9px;
-    font-family: Roboto;
-    font-size: 20px;
+    font-size: 1.25em;
     font-weight: 500;
-    font-stretch: normal;
-    font-style: normal;
     color: rgba(0, 0, 0, 0.87);
   }
 
   &Profession {
     margin-top: 5px;
-    font-family: Roboto;
-    font-size: 14px;
+    font-size: 0.875em;
     font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-
     letter-spacing: 0.25px;
     color: rgba(0, 0, 0, 0.87);
   }
@@ -109,12 +97,8 @@
     margin-top: 15px;
     border-radius: 24px;
 
-    font-family: Roboto;
-    line-height: 24px;
-    font-size: 14px;
+    font-size: 0.875em;
     font-weight: 500;
-    font-stretch: normal;
-    font-style: normal;
     letter-spacing: 1.25px;
   }
 }
@@ -126,11 +110,8 @@
   height: 38px;
   &Text {
     margin-left: 22px;
-    font-family: Roboto;
-    font-size: 14px;
+    font-size: 0.875em;
     font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
     letter-spacing: 0.25px;
     color: rgba(0, 0, 0, 0.87);
   }
@@ -139,11 +120,8 @@
 .breadCrumbs {
   margin-top: 17px;
 
-  font-family: Roboto;
-  font-size: 14px;
+  font-size: 0.875em;
   font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
   letter-spacing: 0.25px;
   color: rgba(0, 0, 0, 0.6);
   text-transform: capitalize;
@@ -151,11 +129,9 @@
 
 .breadLastCrumbs {
   text-transform: capitalize;
-  font-family: Roboto;
-  font-size: 14px;
+
+  font-size: 0.875em;
   font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
   letter-spacing: 0.25px;
   color: rgba(0, 0, 0, 0.6);
 }
@@ -165,21 +141,15 @@
 }
 
 .dialogTitle {
-  font-family: Roboto;
-  font-size: 14px;
+  font-size: 0.875em;
   font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
   letter-spacing: 1.25px;
   color: rgba(0, 0, 0, 0.6);
 }
 
 .dialogError {
-  font-family: Roboto;
-  font-size: 14px;
+  font-size: 0.875em;
   font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
   letter-spacing: 1.25px;
   color: rgb(255, 0, 0);
 }
@@ -220,11 +190,8 @@
       margin-left: 72px;
       vertical-align: top;
 
-      font-family: Roboto;
-      font-size: 14px;
+      font-size: 0.875em;
       font-weight: 500;
-      font-stretch: normal;
-      font-style: normal;
       letter-spacing: 1.25px;
       color: rgba(0, 0, 0, 0.6);
     }
@@ -232,11 +199,8 @@
     &Title {
       margin-left: 72px;
 
-      font-family: Roboto;
-      font-size: 34px;
+      font-size: 2.125em;
       font-weight: normal;
-      font-stretch: normal;
-      font-style: normal;
       letter-spacing: 0.25px;
       color: rgba(0, 0, 0, 0.87);
     }
@@ -244,11 +208,8 @@
 
   &Text {
     margin-top: 22px;
-    font-family: Roboto;
-    font-size: 18px;
+    font-size: 1.125em;
     font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
     line-height: 1.78;
     letter-spacing: 0.23px;
     color: rgba(0, 0, 0, 0.87);
@@ -257,12 +218,8 @@
   &Tags {
     margin-top: 20px;
 
-    font-family: Roboto;
-    font-size: 12px;
+    font-size: 0.75em;
     font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.33;
     letter-spacing: 0.4px;
     color: rgba(0, 0, 0, 0.6);
   }
@@ -273,23 +230,16 @@
     padding: 4px 16px 4px 16px;
     background-color: #f0f1f7;
 
-    font-size: 16px;
+    font-size: 1em;
     font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.5;
     letter-spacing: 0.15px;
     color: rgba(0, 0, 0, 0.87);
   }
 
   &Photo {
     margin-top: 20px;
-    font-family: Roboto;
-    font-size: 12px;
+    font-size: 0.75em;
     font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.33;
     letter-spacing: 0.4px;
     color: rgba(0, 0, 0, 0.6);
   }
@@ -299,11 +249,8 @@
     padding: 8px 16px 8px 16px;
     background-color: #f0f1f7;
 
-    font-size: 16px;
+    font-size: 1em;
     font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.5;
     letter-spacing: 0.15px;
     color: rgba(0, 0, 0, 0.87);
 
@@ -319,12 +266,8 @@
   }
   &Views {
     margin-top: 13px;
-    font-family: Roboto;
-    font-size: 14px;
+    font-size: 0.875em;
     font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.43;
     letter-spacing: 0.25px;
     color: rgba(0, 0, 0, 0.6);
   }
@@ -340,31 +283,22 @@
     margin-top: 16px;
     margin-left: -8px;
     &Uploads {
-      font-family: Roboto;
       text-transform: none;
-      font-size: 16px;
+      font-size: 1em;
       font-weight: 500;
-      font-stretch: normal;
-      font-style: normal;
       letter-spacing: 0.15px;
     }
     &Favorites {
       margin-left: 22px;
-      font-family: Roboto;
-      font-size: 16px;
+      font-size: 1em;
       font-weight: normal;
-      font-stretch: normal;
-      font-style: normal;
       text-transform: none;
       letter-spacing: 0.15px;
     }
 
     &Save {
-      font-family: Roboto;
-      font-size: 16px;
+      font-size: 1em;
       font-weight: normal;
-      font-stretch: normal;
-      font-style: normal;
       text-transform: none;
       letter-spacing: 0.15px;
     }
@@ -383,11 +317,8 @@
 
     margin-left: -8px;
     &Answer {
-      font-family: Roboto;
-      font-size: 16px;
+      font-size: 1em;
       font-weight: normal;
-      font-stretch: normal;
-      font-style: normal;
       color: #212121;
       text-transform: none;
       letter-spacing: 0.15px;
@@ -418,14 +349,13 @@
       }
 
       &Title {
-        font-size: 18px;
+        font-size: 1.125em;
         font-weight: 500;
-
         color: rgba(0, 0, 0, 0.87);
       }
 
       &Subheader {
-        font-size: 14px;
+        font-size: 0.875em;
         font-weight: normal;
         letter-spacing: 0.25px;
         color: rgba(0, 0, 0, 0.6);
@@ -433,7 +363,7 @@
 
       &Edit {
         transform: translate(0, 32%);
-        font-size: 14px;
+        font-size: 0.875em;
         font-weight: 500;
         letter-spacing: 1.25px;
 
@@ -444,7 +374,7 @@
     }
     &Text {
       margin-top: 20px;
-      font-size: 18px;
+      font-size: 1.125em;
       font-weight: normal;
 
       line-height: 1.78;
@@ -453,7 +383,7 @@
     }
     &View {
       padding-top: 10px;
-      font-size: 14px;
+      font-size: 0.875em;
       font-weight: normal;
       letter-spacing: 0.25px;
       color: rgba(0, 0, 0, 0.6);
@@ -466,14 +396,14 @@
   margin-top: 30px;
   margin-right: 24px;
   &Text {
-    font-size: 20px;
+    font-size: 1.25em;
     font-weight: 500;
     letter-spacing: 0.25px;
     color: var(--primary-900);
   }
 
   &More {
-    font-size: 14px;
+    font-size: 0.875em;
     font-weight: 500;
 
     letter-spacing: 1.25px;
@@ -494,42 +424,41 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    flex-wrap: wrap-reverse;
     height: 248px;
-    min-width: 200px;
+    min-width: 190px;
     border-radius: 10px;
     padding: 16px 16px 0 16px;
 
     &Name {
-      font-size: 12px;
+      font-size: 0.75em;
       font-weight: 500;
       letter-spacing: 2px;
       color: rgba(0, 0, 0, 0.6);
     }
 
     &Question {
-      font-size: 18px;
+      font-size: 1.125em;
       font-weight: 500;
       letter-spacing: 0.23px;
       color: rgba(0, 0, 0, 0.87);
     }
 
     &Info {
-      font-size: 14px;
+      font-size: 0.875em;
       font-weight: normal;
       letter-spacing: 0.25px;
       color: rgba(0, 0, 0, 0.6);
     }
 
     &Text {
-      font-size: 16px;
+      font-size: 1em;
       font-weight: normal;
       letter-spacing: 0.15px;
       color: rgba(0, 0, 0, 0.87);
     }
 
     &Answers {
-      font-size: 16px;
+      font-size: 1em;
       font-weight: normal;
       letter-spacing: 0.15px;
       color: #212121;
@@ -538,8 +467,3 @@
     }
   }
 }
-// @media (max-width: 1350px) {
-//   .:last-child {
-//     display: none;
-//   }
-// }
