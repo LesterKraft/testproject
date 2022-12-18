@@ -6,6 +6,17 @@ import ButtonSignUp from "./ButtonSignUp";
 import Stack from "@mui/material/Stack";
 import { getAuth, signOut } from "firebase/auth";
 import { useState } from "react";
+import MenuIcon from "@mui/icons-material/Menu";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+const theme = createTheme({
+  palette: {
+    white: {
+      main: "#ffffff",
+      contrastText: "#fff",
+    },
+  },
+});
 
 export default function HeaderBar() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -14,17 +25,21 @@ export default function HeaderBar() {
     setCurrentUser(res);
   });
 
-  const logOut = () => {
-    signOut(getAuth())
-      .then(() => {
-        console.log("sign out");
-      })
-      .catch((err) => console.error(err));
-  };
   return (
     <>
       <header className={styles.header}>
         <div>
+          <ThemeProvider theme={theme}>
+            <IconButton
+              className={styles.headerMenu}
+              edge="start"
+              color="white"
+              aria-label="menu"
+              sx={{ mr: 2 }}
+            >
+              <MenuIcon />
+            </IconButton>
+          </ThemeProvider>
           <Link href="/" className={styles.headerLogo}>
             Health Shared
           </Link>

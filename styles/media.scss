@@ -14,5 +14,45 @@
   }
 }
 
-@media (max-width: 1199) {
+@media (max-width: 1199px) {
+  .cards {
+    &Wrapper:nth-child(n + 5) {
+      display: flex;
+    }
+  }
+  .dMenu {
+    display: none;
+  }
+  .loginItems {
+    display: none;
+  }
+  .menuItem {
+    display: none;
+  }
+
+  .header {
+    height: 60px;
+
+    > div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &Logo {
+    }
+
+    &Search {
+      margin-left: 30px;
+
+      &Input {
+        height: 40px;
+        width: 450px;
+      }
+
+      &Button {
+        height: 40px;
+      }
+    }
+  }
 }
