@@ -16,7 +16,7 @@
 
 @media (max-width: 1199px) {
   .cards {
-    &Wrapper:nth-child(n + 5) {
+    &Wrapper:nth-child(n + 4) {
       display: flex;
     }
   }
@@ -35,24 +35,73 @@
 
     > div {
       display: flex;
+
       justify-content: space-between;
       align-items: center;
     }
 
+    &Menu {
+      display: flex;
+    }
     &Logo {
     }
 
     &Search {
       margin-left: 30px;
-
       &Input {
-        height: 40px;
-        width: 450px;
+        height: 38px;
+        max-width: 250px;
       }
 
       &Button {
-        height: 40px;
+        height: 38px;
+        width: 45px;
       }
+    }
+    &Notification {
+      margin-left: 5px;
+    }
+  }
+  .loginButton {
+    font-size: 1em;
+  }
+  .signupButton {
+    font-size: 1em;
+  }
+
+  .card {
+    max-width: 1200px;
+    min-width: 720px;
+  }
+
+  .answer {
+    max-width: 1200px;
+    min-width: 720px;
+  }
+
+  .cards {
+    &Wrapper {
+      min-width: 190px;
+
+      &Answers {
+        width: 108px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1124px) {
+  .cards {
+    &Wrapper:nth-child(n + 5) {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 904px) {
+  .cards {
+    &Wrapper:nth-child(n + 4) {
+      display: none;
     }
   }
 }

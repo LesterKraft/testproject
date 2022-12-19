@@ -99,6 +99,7 @@ export default function ButtonLogin() {
           size="large"
           variant="contained"
           onClick={handleClickOpen}
+          className={styles.signupButton}
         >
           SIGN UP
         </Button>

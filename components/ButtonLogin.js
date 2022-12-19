@@ -103,6 +103,7 @@ export default function ButtonLogin(props) {
           size="large"
           variant="contained"
           onClick={handleClickOpen}
+          className={styles.loginButton}
         >
           LOGIN
         </Button>

@@ -35,7 +35,7 @@ export default function HeaderBar() {
               edge="start"
               color="white"
               aria-label="menu"
-              sx={{ mr: 2 }}
+              size="large"
             >
               <MenuIcon />
             </IconButton>
