@@ -55,10 +55,9 @@ export default function MobileMenu() {
         {!open ? (
           <IconButton
             aria-label="open drawer"
-            onClick={!open ? handleDrawerOpen : handleDrawerClose}
-            // onClick={handleDrawerClose}
+            onClick={handleDrawerOpen}
             edge="start"
-            sx={{ mr: 2, ...(open && { display: "none" }) }}
+            sx={{ mr: 2 }}
             className={styles.iconMenu}
             color="white"
             size="large"
@@ -68,10 +67,10 @@ export default function MobileMenu() {
         ) : (
           <IconButton
             aria-label="open drawer"
-            onClick={!open ? handleDrawerOpen : handleDrawerClose}
+            onClick={handleDrawerClose}
             // onClick={handleDrawerClose}
             edge="start"
-            sx={{ mr: 2, ...(open && { display: "none" }) }}
+            sx={{ mr: 2 }}
             className={styles.iconMenu}
             color="white"
             size="large"
@@ -79,28 +78,42 @@ export default function MobileMenu() {
             <CloseIcon />
           </IconButton>
         )}
-        <Drawer
-          sx={{
-            "& .MuiDrawer-paper": {
-              width: drawerWidth,
-              boxSizing: "border-box",
-            },
-          }}
-          variant="persistent"
-          anchor="left"
-          open={open}
-        >
-          {!currentUser ? (
-            <>
+        {!currentUser ? (
+          <div className={styles.drawerMenu}>
+            <Drawer
+              sx={{
+                "& .MuiDrawer-paper": {
+                  width: drawerWidth,
+                  height: "900px",
+                  boxSizing: "border-box",
+                },
+              }}
+              variant="persistent"
+              anchor="left"
+              open={open}
+            >
               <MenuListAuthOff />
-            </>
-          ) : (
-            <>
+            </Drawer>
+          </div>
+        ) : (
+          <div className={styles.drawerMenu}>
+            <Drawer
+              sx={{
+                "& .MuiDrawer-paper": {
+                  width: drawerWidth,
+                  height: "900px",
+                  boxSizing: "border-box",
+                },
+              }}
+              variant="persistent"
+              anchor="left"
+              open={open}
+            >
               <LoginItems />
               <MenuList />
-            </>
-          )}
-        </Drawer>
+            </Drawer>
+          </div>
+        )}
       </ThemeProvider>
     </>
   );

@@ -34,17 +34,7 @@ export default function HeaderBar() {
       <header className={styles.header}>
         <div>
           <MobileMenu />
-          {/* <ThemeProvider theme={theme}>
-            <IconButton
-              className={styles.headerMenu}
-              edge="start"
-              color="white"
-              aria-label="menu"
-              size="large"
-            >
-              <MenuIcon />
-            </IconButton>
-          </ThemeProvider> */}
+
           <Link href="/" className={styles.headerLogo}>
             Health Shared
           </Link>
