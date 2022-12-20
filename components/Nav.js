@@ -33,7 +33,7 @@ export default function HeaderBar() {
     <>
       <header className={styles.header}>
         <div>
-          <MobileMenu />
+          <MobileMenu user={currentUser} />
 
           <Link href="/" className={styles.headerLogo}>
             Health Shared

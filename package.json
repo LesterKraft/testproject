@@ -17,6 +17,7 @@
     "@mui/joy": "^5.0.0-alpha.57",
     "@mui/material": "^5.10.15",
     "@mui/styled-engine-sc": "^5.10.14",
+    "@reduxjs/toolkit": "^1.9.1",
     "classnames": "^2.3.2",
     "firebase": "^9.14.0",
     "firebaseui": "^6.0.2",
@@ -27,6 +28,7 @@
     "react-dom": "18.2.0",
     "react-firebaseui": "^6.0.0",
     "react-router-dom": "^6.4.4",
+    "redux": "^4.2.0",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {

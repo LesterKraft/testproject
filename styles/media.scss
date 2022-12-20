@@ -94,6 +94,23 @@
   .breadCrumbs {
     margin-top: 87px;
   }
+
+  .loginItems {
+    &Ava {
+      border-radius: 50%;
+    }
+    &Button {
+      width: 110px;
+      height: 42px;
+    }
+  }
+
+  .menuItem {
+    padding: 0 0 0 24px;
+    margin: 5px 0 0 0;
+    max-width: 316px;
+    height: 40px;
+  }
 }
 
 @media (max-width: 1124px) {

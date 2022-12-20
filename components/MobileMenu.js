@@ -8,7 +8,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { LoginItems } from "./LoginItems";
 import styles from "/styles/Home.module.scss";
 import MenuList, { MenuListAuthOff } from "./MenuList.js";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getAuth } from "firebase/auth";
 
 const drawerWidth = 235;
@@ -31,12 +31,14 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   justifyContent: "flex-end",
 }));
 
-export default function MobileMenu() {
-  const [currentUser, setCurrentUser] = useState(null);
+export default function MobileMenu(props) {
   const auth = getAuth();
-  // auth.onAuthStateChanged((res) => {
-  //   setCurrentUser(res);
-  // });
+  const [currentUser, setCurrentUser] = useState(null);
+  useEffect(() => {
+    if (props.user) {
+      setCurrentUser(props.user);
+    }
+  }, [props]);
 
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -84,7 +86,7 @@ export default function MobileMenu() {
               sx={{
                 "& .MuiDrawer-paper": {
                   width: drawerWidth,
-                  height: "900px",
+
                   boxSizing: "border-box",
                 },
               }}
@@ -101,7 +103,7 @@ export default function MobileMenu() {
               sx={{
                 "& .MuiDrawer-paper": {
                   width: drawerWidth,
-                  height: "900px",
+
                   boxSizing: "border-box",
                 },
               }}
