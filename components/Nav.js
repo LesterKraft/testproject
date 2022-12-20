@@ -8,6 +8,7 @@ import { getAuth, signOut } from "firebase/auth";
 import { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import MobileMenu from "./MobileMenu";
 
 const theme = createTheme({
   palette: {
@@ -15,6 +16,9 @@ const theme = createTheme({
       main: "#ffffff",
       contrastText: "#fff",
     },
+  },
+  drawer: {
+    width: 250,
   },
 });
 
@@ -29,7 +33,8 @@ export default function HeaderBar() {
     <>
       <header className={styles.header}>
         <div>
-          <ThemeProvider theme={theme}>
+          <MobileMenu />
+          {/* <ThemeProvider theme={theme}>
             <IconButton
               className={styles.headerMenu}
               edge="start"
@@ -39,7 +44,7 @@ export default function HeaderBar() {
             >
               <MenuIcon />
             </IconButton>
-          </ThemeProvider>
+          </ThemeProvider> */}
           <Link href="/" className={styles.headerLogo}>
             Health Shared
           </Link>

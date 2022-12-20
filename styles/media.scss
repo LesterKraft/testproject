@@ -23,15 +23,22 @@
   .dMenu {
     display: none;
   }
-  .loginItems {
-    display: none;
-  }
-  .menuItem {
-    display: none;
-  }
+  // .loginItems {
+  //   display: none;
+  // }
+  // .menuItem {
+  //   display: none;
+  // }
 
+  .iconMenu {
+    display: flex;
+  }
   .header {
-    height: 60px;
+    height: 70px;
+    padding: 20px 20px 20px 20px;
+    min-width: 100%;
+    position: fixed;
+    z-index: 1;
 
     > div {
       display: flex;
@@ -87,6 +94,9 @@
         width: 108px;
       }
     }
+  }
+  .breadCrumbs {
+    margin-top: 87px;
   }
 }
 
