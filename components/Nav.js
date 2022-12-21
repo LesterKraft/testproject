@@ -6,9 +6,9 @@ import ButtonSignUp from "./ButtonSignUp";
 import Stack from "@mui/material/Stack";
 import { getAuth, signOut } from "firebase/auth";
 import { useState } from "react";
-import MenuIcon from "@mui/icons-material/Menu";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import MobileMenu from "./MobileMenu";
+import SearchIcon from "@mui/icons-material/Search";
 
 const theme = createTheme({
   palette: {
@@ -16,9 +16,6 @@ const theme = createTheme({
       main: "#ffffff",
       contrastText: "#fff",
     },
-  },
-  drawer: {
-    width: 250,
   },
 });
 
@@ -49,6 +46,15 @@ export default function HeaderBar() {
             </button>
           </form>
         </div>
+        <ThemeProvider theme={theme}>
+          <IconButton
+            className={styles.mobileSearch}
+            color="white"
+            size="small"
+          >
+            <SearchIcon />
+          </IconButton>
+        </ThemeProvider>
         <div>
           {!currentUser ? (
             <Stack spacing={2} direction="row">
@@ -58,10 +64,18 @@ export default function HeaderBar() {
           ) : (
             <>
               <IconButton>
-                <img src="/header/help.svg" alt="help" />
+                <img
+                  className={styles.headerQuestion}
+                  src="/header/help.svg"
+                  alt="help"
+                />
               </IconButton>
               <IconButton className={styles.headerNotification}>
-                <img src="/header/notifications.svg" alt="notifications" />
+                <img
+                  className={styles.headerNotificationIcon}
+                  src="/header/notifications.svg"
+                  alt="notifications"
+                />
               </IconButton>
             </>
           )}
