@@ -73,7 +73,7 @@
   }
   .line {
     &Text {
-      margin-left: 10px;
+      margin-left: 0px;
     }
   }
   .card {
@@ -120,9 +120,9 @@
   }
 
   .menuItem {
-    padding: 0 0 0 24px;
-    margin: 5px 0 0 0;
-    max-width: 316px;
+    // padding: 0 0 0 24px;
+    // margin: 5px 0 0 0;
+    // max-width: 316px;
     height: 33px;
   }
 }
@@ -150,22 +150,14 @@
     &Logo {
       margin-left: 0;
     }
-
+    .menuItem {
+      min-height: 35px;
+    }
+    .mobileSearch {
+      display: flex;
+    }
     &Search {
-      margin-left: 10px;
-
-      &Input {
-        height: 25px;
-        width: 100%;
-        max-width: 200px;
-        min-width: 120px;
-        font-size: 1em;
-      }
-
-      &Button {
-        height: 25px;
-        width: 30px;
-      }
+      display: none;
     }
     &Question {
       width: 25px;
@@ -194,10 +186,15 @@
     margin-top: 50px;
     margin-left: 10px;
   }
+  .line {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
   .card {
     margin-top: 10px;
     min-width: 320px;
-    margin-right: 0;
+    margin-left: 10px;
+    margin-right: 10px;
     padding: 20px 10px 0 10px;
     &Top {
       &Icon {
@@ -233,16 +230,20 @@
 
   .answer {
     min-width: 320px;
-    margin-right: 0;
+
+    margin-left: 10px;
+    margin-right: 10px;
     padding: 5px 10px;
     &Divider {
       margin-top: 5px;
     }
   }
   .cards {
+    margin-left: 10px;
+    margin-right: 10px;
     margin-top: 20px;
     margin-bottom: 66px;
-    margin-right: 0;
+
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
@@ -256,25 +257,14 @@
       display: flex;
     }
   }
-  @media (max-width: 605px) {
-    .cards {
-      margin-top: 20px;
-      margin-bottom: 66px;
-      margin-right: 0;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-    }
-  }
 }
-
-@media (max-width: 575px) {
-  .header {
-    &Search {
-      display: none;
-    }
-    .mobileSearch {
-      display: flex;
-    }
+@media (max-width: 605px) {
+  .cards {
+    margin-top: 20px;
+    margin-bottom: 66px;
+    margin-right: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 }

@@ -1,6 +1,6 @@
 import Head from "next/head";
-import DisplayMenu from "./DMenu";
-import HeaderBar from "./Nav";
+import DisplayMenu from "./menu/DMenu";
+import HeaderBar from "./header/Nav";
 import NextBreadcrumbs from "./NextBreadCrumbs";
 
 export default function Layout({ children, title, description, keywords }) {

@@ -4,6 +4,8 @@ body {
   margin: 0;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
+  --standard-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 8px 10px 1px rgba(0, 0, 0, 0.14);
 }
 
 a {
@@ -34,10 +36,9 @@ a {
 }
 
 .MuiDrawer-paper {
-  margin-top: 71px;
+  margin-top: 70px;
   z-index: 1;
-  width: 235px;
-  height: 100%;
+  width: 230px;
 }
 @media (max-width: 1199px) {
   .layoutGrid {
@@ -61,7 +62,6 @@ a {
   }
 
   .MuiDrawer-paper {
-    width: 100vh;
     margin-top: 40px;
   }
 }

@@ -9,14 +9,13 @@ import CloseIcon from "@mui/icons-material/Close";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import styles from "/styles/Home.module.scss";
-import firebaseEmailPasswordAuth from "../auth/firebaseEmailPasswordAuth";
 import { useState } from "react";
-import googleAuth from "../auth/googleAuth";
+import createEmailPasswordAccount from "../../auth/createEmailPassworAccount";
 
 const theme = createTheme({
   palette: {
-    black: {
-      main: "#2a2a2b",
+    red: {
+      main: "#c8000d",
       contrastText: "#fff",
     },
   },
@@ -60,29 +59,26 @@ BootstrapDialogTitle.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
 
-export default function ButtonLogin(props) {
-  const [status, setStatus] = useState("Please Login");
+export default function ButtonLogin() {
+  const [status, setStatus] = useState("Sign Up Please");
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
   };
   const handleClose = () => {
-    setStatus("Please Login");
-    setError(false);
     setOpen(false);
   };
-  const [error, setError] = useState(false);
+
   const [isSignedIn, setIsSignedIn] = useState(false);
   function formSubmit(e) {
     e.preventDefault();
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
-    firebaseEmailPasswordAuth(email, password)
+    createEmailPasswordAccount(email, password)
       .then((res) => {
         console.log(res);
-        // props.signedUser(res)
         console.log("user successfully signed in");
         setIsSignedIn(true);
         setError(false);
@@ -94,18 +90,18 @@ export default function ButtonLogin(props) {
         setError(true);
       });
   }
-
+  const [error, setError] = useState(false);
   return (
     <>
       <ThemeProvider theme={theme}>
         <Button
-          color="black"
+          color="red"
           size="large"
           variant="contained"
           onClick={handleClickOpen}
-          className={styles.loginButton}
+          className={styles.signupButton}
         >
-          LOGIN
+          SIGN UP
         </Button>
       </ThemeProvider>
       {!isSignedIn ? (
@@ -143,28 +139,8 @@ export default function ButtonLogin(props) {
               size="large"
               variant="contained"
             >
-              LOG IN
+              SIGN UP
             </Button>
-            <ThemeProvider theme={theme}>
-              <Button
-                className={styles.dialogButton}
-                size="large"
-                variant="contained"
-                color="black"
-                onClick={() => {
-                  googleAuth()
-                    .then((user) => {
-                      console.log(user);
-                      handleClose();
-                    })
-                    .catch((error) => {
-                      console.error(error);
-                    });
-                }}
-              >
-                Google Authorization
-              </Button>
-            </ThemeProvider>
           </form>
         </BootstrapDialog>
       ) : null}

@@ -7,7 +7,7 @@ import Stack from "@mui/material/Stack";
 import { getAuth, signOut } from "firebase/auth";
 import { useState } from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import MobileMenu from "./MobileMenu";
+import MobileMenu from "../menu/MobileMenu";
 import SearchIcon from "@mui/icons-material/Search";
 
 const theme = createTheme({
@@ -46,23 +46,33 @@ export default function HeaderBar() {
             </button>
           </form>
         </div>
-        <ThemeProvider theme={theme}>
-          <IconButton
-            className={styles.mobileSearch}
-            color="white"
-            size="small"
-          >
-            <SearchIcon />
-          </IconButton>
-        </ThemeProvider>
+
         <div>
           {!currentUser ? (
             <Stack spacing={2} direction="row">
+              <ThemeProvider theme={theme}>
+                <IconButton
+                  className={styles.mobileSearch}
+                  color="white"
+                  size="small"
+                >
+                  <SearchIcon />
+                </IconButton>
+              </ThemeProvider>
               <ButtonLogin />
               <ButtonSignUp />
             </Stack>
           ) : (
             <>
+              <ThemeProvider theme={theme}>
+                <IconButton
+                  className={styles.mobileSearch}
+                  color="white"
+                  size="small"
+                >
+                  <SearchIcon />
+                </IconButton>
+              </ThemeProvider>
               <IconButton>
                 <img
                   className={styles.headerQuestion}

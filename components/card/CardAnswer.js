@@ -10,7 +10,6 @@ import { styled } from "@mui/material/styles";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import EditIcon from "@mui/icons-material/Edit";
-import FileUploadIcon from "@mui/icons-material/FileUpload";
 
 import ForwardIcon from "@mui/icons-material/Forward";
 import ShareIcon from "@mui/icons-material/Share";
@@ -122,28 +121,26 @@ export default function CardAnswer() {
               </div>
               <div className={styles.answerMainView}>1 view • Now</div>
               <div className={styles.cardFooter}>
-                <div>
-                  <Button
-                    className={styles.cardFooterUploads}
-                    color="red"
-                    size="large"
-                    aria-label="upvotes"
-                    startIcon={<FileUploadIcon />}
-                  >
-                    Upvote
-                  </Button>
-                </div>
-                <div>
-                  <IconButton aria-label="down" size="large">
-                    <ForwardIcon />
-                  </IconButton>
-                  <IconButton aria-label="share" size="large">
-                    <ShareIcon />
-                  </IconButton>
-                  <IconButton aria-label="more" size="large">
-                    <MoreHorizIcon />
-                  </IconButton>
-                </div>
+                <Button
+                  className={styles.cardFooterUploads}
+                  color="red"
+                  size="large"
+                  aria-label="upvotes"
+                  startIcon={<ForwardIcon className={styles.upvote} />}
+                >
+                  Upvote
+                </Button>
+                <div style={{ flexGrow: "1" }} />
+
+                <IconButton aria-label="down" size="large">
+                  <ForwardIcon className={styles.downvote} />
+                </IconButton>
+                <IconButton aria-label="share" size="large">
+                  <ShareIcon />
+                </IconButton>
+                <IconButton aria-label="more" size="large">
+                  <MoreHorizIcon />
+                </IconButton>
               </div>
             </div>
           </Collapse>

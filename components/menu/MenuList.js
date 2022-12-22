@@ -1,4 +1,4 @@
-import menulist from "../data/menuList";
+import menulist from "../../data/menuList";
 import Divider from "@mui/material/Divider";
 import MenuItem from "@mui/material/MenuItem";
 import styles from "/styles/Home.module.scss";
