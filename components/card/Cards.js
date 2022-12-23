@@ -44,15 +44,17 @@ export default function Cards() {
               {question.description}
             </div>
             <ThemeProvider theme={theme}>
-              <Button
-                className={styles.cardsWrapperAnswers}
-                color="grey"
-                size="large"
-                aria-label="upvotes"
-                startIcon={<QuestionAnswerIcon />}
-              >
-                {question.answers} Answer
-              </Button>
+              <div className={styles.cardsGradient}>
+                <Button
+                  className={styles.cardsWrapperAnswers}
+                  color="grey"
+                  size="large"
+                  aria-label="upvotes"
+                  startIcon={<QuestionAnswerIcon />}
+                >
+                  {question.answers} Answer
+                </Button>
+              </div>
             </ThemeProvider>
           </Card>
         ))}
