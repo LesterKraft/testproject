@@ -50,7 +50,11 @@ export default function CardQuestion(props) {
         <div className={styles.cardTags}>Tags</div>
 
         {questionData.tags.map((tag) => (
-          <Link href="#" className={styles.cardTagsWrapper}>
+          <Link
+            href="#"
+            className={styles.cardTagsWrapper}
+            key={questionData.tags.indexOf(tag)}
+          >
             {tag}
           </Link>
         ))}

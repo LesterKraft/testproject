@@ -3,7 +3,14 @@ import { Card } from "@mui/material";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 import Button from "@mui/material/Button";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import questionCards from "../../data/questionsCards";
+import TimestampComponent from "../TimestampComponent";
 
+function random() {
+  const min = Math.ceil(1);
+  const max = Math.floor(30);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 const theme = createTheme({
   palette: {
     red: {
@@ -22,116 +29,33 @@ export default function Cards() {
   return (
     <>
       <div className={styles.cards}>
-        <Card className={styles.cardsWrapper}>
-          <div className={styles.cardsWrapperName}> Question</div>
-          <div className={styles.cardsWrapperQuestion}>
-            What is the best way to prepare for EVLA?
-          </div>
-          <div className={styles.cardsWrapperInfo}>79 views • 3 hours ago</div>
-          <div className={styles.cardsWrapperText}>
-            A transluminal SFA angioplasty or stent is a minimally-invasive
-            procedure carried out in an …
-          </div>
-          <ThemeProvider theme={theme}>
-            <Button
-              className={styles.cardsWrapperAnswers}
-              color="grey"
-              size="large"
-              aria-label="upvotes"
-              startIcon={<QuestionAnswerIcon />}
-            >
-              8 Answer
-            </Button>
-          </ThemeProvider>
-        </Card>
-        <Card className={styles.cardsWrapper}>
-          <div className={styles.cardsWrapperName}> Question</div>
-          <div className={styles.cardsWrapperQuestion}>
-            What is the best way to prepare for EVLA?
-          </div>
-          <div className={styles.cardsWrapperInfo}>79 views • 3 hours ago</div>
-          <div className={styles.cardsWrapperText}>
-            A transluminal SFA angioplasty or stent is a minimally-invasive
-            procedure carried out in an …
-          </div>
-          <ThemeProvider theme={theme}>
-            <Button
-              className={styles.cardsWrapperAnswers}
-              color="grey"
-              size="large"
-              aria-label="upvotes"
-              startIcon={<QuestionAnswerIcon />}
-            >
-              8 Answer
-            </Button>
-          </ThemeProvider>
-        </Card>
-        <Card className={styles.cardsWrapper}>
-          <div className={styles.cardsWrapperName}> Question</div>
-          <div className={styles.cardsWrapperQuestion}>
-            What is the best way to prepare for EVLA?
-          </div>
-          <div className={styles.cardsWrapperInfo}>79 views • 3 hours ago</div>
-          <div className={styles.cardsWrapperText}>
-            A transluminal SFA angioplasty or stent is a minimally-invasive
-            procedure carried out in an …
-          </div>
-          <ThemeProvider theme={theme}>
-            <Button
-              className={styles.cardsWrapperAnswers}
-              color="grey"
-              size="large"
-              aria-label="upvotes"
-              startIcon={<QuestionAnswerIcon />}
-            >
-              8 Answer
-            </Button>
-          </ThemeProvider>
-        </Card>
-        <Card className={styles.cardsWrapper}>
-          <div className={styles.cardsWrapperName}> Question</div>
-          <div className={styles.cardsWrapperQuestion}>
-            What is the best way to prepare for EVLA?
-          </div>
-          <div className={styles.cardsWrapperInfo}>79 views • 3 hours ago</div>
-          <div className={styles.cardsWrapperText}>
-            A transluminal SFA angioplasty or stent is a minimally-invasive
-            procedure carried out in an …
-          </div>
-          <ThemeProvider theme={theme}>
-            <Button
-              className={styles.cardsWrapperAnswers}
-              color="grey"
-              size="large"
-              aria-label="upvotes"
-              startIcon={<QuestionAnswerIcon />}
-            >
-              8 Answer
-            </Button>
-          </ThemeProvider>
-        </Card>
-        <Card className={styles.cardsWrapper}>
-          <div className={styles.cardsWrapperName}> Question</div>
-          <div className={styles.cardsWrapperQuestion}>
-            What is the best way to prepare for EVLA?
-          </div>
-          <div className={styles.cardsWrapperInfo}>79 views • 3 hours ago</div>
-          <div className={styles.cardsWrapperText}>
-            A transluminal SFA angioplasty or stent is a minimally-invasive
-            procedure carried out in an …
-          </div>
-          <ThemeProvider theme={theme}>
-            <Button
-              className={styles.cardsWrapperAnswers}
-              color="grey"
-              size="large"
-              aria-label="upvotes"
-              startIcon={<QuestionAnswerIcon />}
-            >
-              8 Answer
-            </Button>
-          </ThemeProvider>
-        </Card>
+        {questionCards.map((question) => (
+          <Card
+            className={styles.cardsWrapper}
+            key={questionCards.indexOf(question)}
+          >
+            <div className={styles.cardsWrapperName}> Question</div>
+            <div className={styles.cardsWrapperQuestion}>{question.title}</div>
+            <div className={styles.cardsWrapperInfo}>
+              {question.views} views •{" "}
+              <TimestampComponent timestamp={question.timestamp} />
+            </div>
+            <div className={styles.cardsWrapperText}>
+              {question.description}
+            </div>
+            <ThemeProvider theme={theme}>
+              <Button
+                className={styles.cardsWrapperAnswers}
+                color="grey"
+                size="large"
+                aria-label="upvotes"
+                startIcon={<QuestionAnswerIcon />}
+              >
+                {question.answers} Answer
+              </Button>
+            </ThemeProvider>
+          </Card>
+        ))}
       </div>
     </>
   );
