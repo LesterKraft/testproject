@@ -47,9 +47,9 @@ export default function HeaderBar() {
           </form>
         </div>
 
-        <div>
+        <div className={styles.wrapperButtons}>
           {!currentUser ? (
-            <Stack spacing={2} direction="row">
+            <Stack spacing={1} direction="row">
               <ThemeProvider theme={theme}>
                 <IconButton
                   className={styles.mobileSearch}

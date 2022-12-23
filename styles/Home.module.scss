@@ -1,6 +1,6 @@
 .header {
   display: flex;
-  flex-grow: 1;
+
   justify-content: space-between;
   align-items: center;
   height: 88px;
@@ -64,6 +64,12 @@
   &Notification {
     margin-left: 27px;
   }
+}
+
+.wrapperButtons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 .drawerMenu {
   display: none;
@@ -430,13 +436,14 @@
   margin-right: 24px;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+
   gap: 24px;
 
   &Wrapper {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
+    gap: 8px;
     height: 250px;
     min-width: 250px;
     border-radius: 10px;
@@ -484,13 +491,13 @@
   &Gradient {
     display: flex;
     align-items: flex-end;
-    height: 80px;
+    height: 59px;
     background: rgb(255, 255, 255);
     background: linear-gradient(
       0deg,
       rgba(255, 255, 255, 1) 0%,
-      rgba(255, 255, 255, 1) 50%,
-      rgba(255, 255, 255, 0) 100%
+      rgba(255, 255, 255, 0.9640231092436975) 70%,
+      rgba(255, 255, 255, 0.2329306722689075) 100%
     );
   }
 }

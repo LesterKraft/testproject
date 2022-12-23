@@ -59,7 +59,7 @@ export default function MobileMenu(props) {
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             edge="start"
-            sx={{ mr: 1 }}
+            sx={{ mr: 0 }}
             className={styles.iconMenu}
             color="white"
             size="large"
@@ -72,7 +72,7 @@ export default function MobileMenu(props) {
             onClick={handleDrawerClose}
             // onClick={handleDrawerClose}
             edge="start"
-            sx={{ mr: 1 }}
+            sx={{ mr: 0 }}
             className={styles.iconMenu}
             color="white"
             size="large"

@@ -39,6 +39,7 @@ a {
   margin-top: 70px;
   z-index: 1;
   width: 230px;
+  height: 100%;
 }
 @media (max-width: 1199px) {
   .layoutGrid {
@@ -62,6 +63,6 @@ a {
   }
 
   .MuiDrawer-paper {
-    margin-top: 40px;
+    margin-top: 50px;
   }
 }

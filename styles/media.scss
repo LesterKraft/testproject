@@ -1,5 +1,6 @@
 @media (max-width: 1700px) {
   .cards {
+    grid-template-columns: repeat(4, 1fr);
     &Wrapper:nth-child(n + 5) {
       display: none;
     }
@@ -8,6 +9,7 @@
 
 @media (max-width: 1452px) {
   .cards {
+    grid-template-columns: repeat(3, 1fr);
     &Wrapper:nth-child(n + 4) {
       display: none;
     }
@@ -16,7 +18,8 @@
 
 @media (max-width: 1199px) {
   .cards {
-    &Wrapper:nth-child(n + 4) {
+    grid-template-columns: repeat(4, 1fr);
+    &Wrapper:nth-child(n + 5) {
       display: flex;
     }
   }
@@ -45,8 +48,6 @@
 
     &Menu {
       display: flex;
-    }
-    &Logo {
     }
 
     &Search {
@@ -96,15 +97,6 @@
     min-width: 720px;
   }
 
-  .cards {
-    &Wrapper {
-      min-width: 190px;
-
-      &Answers {
-        width: 108px;
-      }
-    }
-  }
   .breadCrumbs {
     margin-top: 87px;
   }
@@ -120,15 +112,13 @@
   }
 
   .menuItem {
-    // padding: 0 0 0 24px;
-    // margin: 5px 0 0 0;
-    // max-width: 316px;
     height: 33px;
   }
 }
 
 @media (max-width: 1124px) {
   .cards {
+    grid-template-columns: repeat(3, 1fr);
     &Wrapper:nth-child(n + 5) {
       display: none;
     }
@@ -137,7 +127,8 @@
 
 @media (max-width: 904px) {
   .cards {
-    &Wrapper:nth-child(n + 4) {
+    grid-template-columns: repeat(2, 1fr);
+    &Wrapper:nth-child(n + 3) {
       display: none;
     }
   }
@@ -145,8 +136,9 @@
 
 @media (max-width: 767px) {
   .header {
-    height: 40px;
+    height: 50px;
     padding: 10px 10px;
+
     &Logo {
       margin-left: 0;
     }
@@ -173,14 +165,11 @@
   }
   .loginButton {
     font-size: 0.85em;
-    width: 10px;
-    height: 25px;
+    padding: 3px 3px;
   }
   .signupButton {
-    width: 60px;
-    height: 25px;
     font-size: 0.85em;
-    padding: 8px 8px;
+    padding: 3px 3px;
   }
   .breadCrumbs {
     margin-top: 50px;
@@ -262,8 +251,6 @@
   .cards {
     margin-top: 20px;
     margin-bottom: 66px;
-    margin-right: 0;
-    display: grid;
     grid-template-columns: 1fr;
     gap: 10px;
   }
