@@ -33,6 +33,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 
 export default function MobileMenu(props) {
   const auth = getAuth();
+
   const [currentUser, setCurrentUser] = useState(null);
   useEffect(() => {
     if (props.user) {
