@@ -3,7 +3,7 @@ import CardAnswer from "../../components/card/CardAnswer";
 import CardQuestion from "../../components/card/CardQuestion";
 import styles from "/styles/Home.module.scss";
 import Link from "next/link";
-import Cards from "../../components//card/Cards";
+import Cards from "../../components/card/Cards";
 
 export default function Post() {
   const router = useRouter();

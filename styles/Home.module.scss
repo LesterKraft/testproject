@@ -296,6 +296,7 @@
 
   &Footer {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     margin-top: 16px;
     margin-left: -8px;
@@ -506,7 +507,8 @@
 }
 
 .upvote {
-  transform: rotate(270deg);
+  transform: rotate(-90deg);
+  margin-bottom: 3px;
 }
 
 .downvote {
