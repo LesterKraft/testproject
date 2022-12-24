@@ -37,3 +37,6 @@ next-env.d.ts
 
 # firestore
 /utils/db/serviceAccountKey.json
+
+# init firebase
+/auth/initFirebase.js
