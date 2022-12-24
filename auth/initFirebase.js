@@ -11,4 +11,3 @@ export default function initFirebase() {
     measurementId: "G-3W4PYX48WX",
   });
 }
-return firebaseConfig;
