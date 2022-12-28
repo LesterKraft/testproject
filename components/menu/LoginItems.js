@@ -8,6 +8,8 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
+import { doc, setDoc } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 
 const theme = createTheme({
   palette: {
@@ -29,15 +31,19 @@ export function LoginItems({ avatar, name, profession }) {
     setOpen(false);
   };
 
-  function formSubmit(e) {
+  async function formSubmit(e) {
     e.preventDefault();
-    const question = {
+    // const question = {
+    //   title: document.getElementById("title").value,
+    //   description: document.getElementById("description").value,
+    //   tags: document.getElementById("tags").value.split(","),
+    // };
+    const db = getFirestore();
+    await setDoc(doc(db, "question", document.getElementById("title").value), {
       title: document.getElementById("title").value,
       description: document.getElementById("description").value,
       tags: document.getElementById("tags").value.split(","),
-    };
-
-    console.log("questionData:", question);
+    });
   }
 
   return (
