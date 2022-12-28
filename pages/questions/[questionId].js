@@ -4,8 +4,11 @@ import CardQuestion from "../../components/card/CardQuestion";
 import styles from "/styles/Home.module.scss";
 import Link from "next/link";
 import Cards from "../../components/card/Cards";
+import { doc, getDoc } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 
-export default function Post() {
+export default function Post(props) {
+  console.log("props", props);
   const router = useRouter();
   const question = {
     title: "How do I know if EVLA is right for me?",
@@ -29,4 +32,25 @@ export default function Post() {
       <Cards />
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+  const db = getFirestore();
+  const docRef = doc(db, "question", context.query.questionId);
+  const docSnap = await getDoc(docRef);
+  let questionData;
+  if (docSnap.exists()) {
+    console.log("Document data:", docSnap.data());
+    questionData = {
+      ...docSnap.data(),
+      id: docSnap.id,
+    };
+    return {
+      props: { question: questionData, questionId: context.query.questionId },
+    };
+  } else {
+    return { props: { question: null, questionId: context.query.questionId } };
+    // doc.data() will be undefined in this case
+    console.log("No such document!");
+  }
 }
