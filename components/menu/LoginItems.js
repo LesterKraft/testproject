@@ -34,11 +34,10 @@ export function LoginItems({ avatar, name, profession }) {
     const question = {
       title: document.getElementById("title").value,
       description: document.getElementById("description").value,
-      tags: [tag1, tag2, tag3],
+      tags: [document.getElementById("tags").value],
     };
-    // const title = document.getElementById("title").value;
-    // const password = document.getElementById("description").value;
-    console.log("question", question);
+
+    console.log("questionData:", question);
   }
 
   return (
@@ -58,49 +57,51 @@ export function LoginItems({ avatar, name, profession }) {
           CREATE
         </Button>
         <Dialog open={open} onClose={handleClose}>
-          <DialogTitle>New Question</DialogTitle>
           <form onSubmit={(e) => formSubmit(e)}>
-            <TextField
-              autoFocus
-              margin="normal"
-              id="title"
-              label="title"
-              type="title"
-              fullWidth
-              variant="standard"
-            />
-            <TextField
-              autoFocus
-              margin="normal"
-              id="description"
-              label="description"
-              type="description"
-              fullWidth
-              multiline
-              rows={4}
-              variant="standard"
-            />
-            <TextField
-              autoFocus
-              margin="normal"
-              id="tags"
-              label="tags"
-              type="tags"
-              fullWidth
-              variant="standard"
-            />
+            <DialogTitle>New Question</DialogTitle>
+            <DialogContent>
+              <TextField
+                autoFocus
+                margin="normal"
+                id="title"
+                label="title"
+                type="title"
+                fullWidth
+                variant="standard"
+              />
+              <TextField
+                autoFocus
+                margin="normal"
+                id="description"
+                label="description"
+                type="description"
+                fullWidth
+                multiline
+                rows={4}
+                variant="standard"
+              />
+              <TextField
+                autoFocus
+                margin="normal"
+                id="tags"
+                label="tags"
+                type="tags"
+                fullWidth
+                variant="standard"
+              />
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleClose}>Cancel</Button>
+              <Button
+                onClick={handleClose}
+                type="submit"
+                value="submit"
+                color="red"
+              >
+                Create
+              </Button>
+            </DialogActions>
           </form>
-          <DialogActions>
-            <Button onClick={handleClose}>Cancel</Button>
-            <Button
-              onClick={handleClose}
-              type="submit"
-              value="submit"
-              color="red"
-            >
-              Create
-            </Button>
-          </DialogActions>
         </Dialog>
       </ThemeProvider>
     </div>
