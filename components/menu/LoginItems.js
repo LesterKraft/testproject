@@ -34,7 +34,7 @@ export function LoginItems({ avatar, name, profession }) {
     const question = {
       title: document.getElementById("title").value,
       description: document.getElementById("description").value,
-      tags: [document.getElementById("tags").value],
+      tags: document.getElementById("tags").value.split(","),
     };
 
     console.log("questionData:", question);
