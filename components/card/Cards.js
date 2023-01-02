@@ -5,12 +5,14 @@ import Button from "@mui/material/Button";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import questionCards from "../../data/questionsCards";
 import TimestampComponent from "../TimestampComponent";
+import { collection, getDocs } from "firebase/firestore";
 
-function random() {
-  const min = Math.ceil(1);
-  const max = Math.floor(30);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+// function random() {
+//   const min = Math.ceil(1);
+//   const max = Math.floor(30);
+//   return Math.floor(Math.random() * (max - min + 1)) + min;
+// }
+
 const theme = createTheme({
   palette: {
     red: {
@@ -25,7 +27,19 @@ const theme = createTheme({
   },
 });
 
-export default function Cards() {
+export async function CollectionsData() {
+  const querySnapshot = await getDocs(collection(db, "question"));
+
+  querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+    // console.log(doc.id, " => ", doc.data());
+    return { props: { id: doc.id, ...doc.data() } };
+  });
+}
+
+export default function Cards(props) {
+  console.log("props", props);
+
   return (
     <>
       <div className={styles.cards}>

@@ -1,7 +1,9 @@
+import Cards from "../components/card/Cards";
+
 export default function index() {
   return (
     <>
-      <h1>Questions</h1>
+      <Cards />
     </>
   );
 }
