@@ -6,6 +6,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import questionCards from "../../data/questionsCards";
 import TimestampComponent from "../TimestampComponent";
 import { collection, getDocs } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 
 // function random() {
 //   const min = Math.ceil(1);
@@ -28,18 +29,19 @@ const theme = createTheme({
 });
 
 export async function CollectionsData() {
+  const db = getFirestore();
   const querySnapshot = await getDocs(collection(db, "question"));
 
   querySnapshot.forEach((doc) => {
     // doc.data() is never undefined for query doc snapshots
-    // console.log(doc.id, " => ", doc.data());
+    console.log(doc.id, " => ", doc.data());
     return { props: { id: doc.id, ...doc.data() } };
   });
 }
 
 export default function Cards(props) {
   console.log("props", props);
-
+  CollectionsData();
   return (
     <>
       <div className={styles.cards}>
