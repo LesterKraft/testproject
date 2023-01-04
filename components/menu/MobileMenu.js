@@ -38,7 +38,8 @@ export default function MobileMenu(props) {
   useEffect(() => {
     if (props.user) {
       setCurrentUser(props.user);
-    }
+    } else {setCurrentUser(null)}
+
   }, [props]);
 
   const theme = useTheme();

@@ -6,27 +6,9 @@ import Link from "next/link";
 import Cards from "../../components/card/Cards";
 import { doc, getDoc } from "firebase/firestore";
 import { getFirestore } from "firebase/firestore";
+import {getQuestion} from "../../components/utility/getQuestion";
 
-export async function getServerSideProps(context) {
-  const db = getFirestore();
-  const docRef = doc(db, "question", context.query.questionId);
-  const docSnap = await getDoc(docRef);
-  let questionData;
-  if (docSnap.exists()) {
-    console.log("Document data:", docSnap.data());
-    questionData = {
-      ...docSnap.data(),
-      id: docSnap.id,
-    };
-    return {
-      props: { question: questionData, questionId: context.query.questionId },
-    };
-  } else {
-    return { props: { question: null, questionId: context.query.questionId } };
-    // doc.data() will be undefined in this case
-    console.log("No such document!");
-  }
-}
+
 
 export default function Post(props) {
   console.log("props", props);
@@ -53,4 +35,22 @@ export default function Post(props) {
       <Cards />
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+    const snapshot = await getQuestion(context.query.questionId);
+
+
+    if (snapshot.exists()) {
+        return {
+            props: {
+                question: {
+                    id: snapshot.id,
+                    ...snapshot.data()
+                }
+            }
+        }
+    } else {
+        return null
+    }
 }

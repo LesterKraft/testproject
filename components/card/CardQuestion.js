@@ -1,4 +1,5 @@
 import { Card, Divider } from "@mui/material";
+import * as React from "react";
 import styles from "/styles/Home.module.scss";
 import Link from "next/link";
 import Button from "@mui/material/Button";
@@ -10,6 +11,14 @@ import ForwardIcon from "@mui/icons-material/Forward";
 import ShareIcon from "@mui/icons-material/Share";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import TimestampComponent from "../TimestampComponent";
+import ReplyIcon from '@mui/icons-material/Reply';
+import TextField from "@mui/material/TextField";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogTitle from "@mui/material/DialogTitle";
+import {doc, getFirestore, setDoc} from "firebase/firestore";
+import Box from '@mui/material/Box';
 
 function calculateTime(timestamp) {
   const today = new Date().getTime();
@@ -33,6 +42,27 @@ const theme = createTheme({
 
 export default function CardQuestion(props) {
   const questionData = props.question;
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  async function formSubmit(e) {
+    e.preventDefault();
+    const db = getFirestore();
+    await setDoc(doc(db, "question", document.getElementById("title").value), {
+      title: document.getElementById("title").value,
+      description: document.getElementById("description").value,
+      tags: document.getElementById("tags").value.split(","),
+    });
+  }
+
   return (
     <>
       <Card className={styles.card}>
@@ -92,6 +122,48 @@ export default function CardQuestion(props) {
 
             <div style={{ flexGrow: "1" }} />
             <Button
+                onClick={handleClickOpen}
+                className={styles.cardFooterSave}
+                color="grey"
+                size="large"
+                aria-label="upvotes"
+                startIcon={<ReplyIcon />}
+            >
+              Reply
+            </Button>
+            <Dialog open={open} onClose={handleClose} fullWidth>
+              <form onSubmit={(e) => formSubmit(e)}>
+                <DialogTitle>Your Answer</DialogTitle>
+                <DialogContent>
+
+                  <TextField
+
+                      autoFocus
+                      margin="normal"
+                      id="answer"
+                      label="answer"
+                      type="answer"
+                      fullWidth
+                      multiline
+                      rows={10}
+                      variant="standard"
+                  />
+
+                </DialogContent>
+                <DialogActions>
+                  <Button onClick={handleClose}>Cancel</Button>
+                  <Button
+                      onClick={handleClose}
+                      type="submit"
+                      value="submit"
+                      color="red"
+                  >
+                    Reply
+                  </Button>
+                </DialogActions>
+              </form>
+            </Dialog>
+            <Button
               className={styles.cardFooterSave}
               color="grey"
               size="large"
@@ -112,6 +184,7 @@ export default function CardQuestion(props) {
           </div>
         </ThemeProvider>
       </Card>
+
     </>
   );
 }

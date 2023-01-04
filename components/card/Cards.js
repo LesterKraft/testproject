@@ -3,10 +3,12 @@ import { Card } from "@mui/material";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 import Button from "@mui/material/Button";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import questionCards from "../../data/questionsCards";
+
 import TimestampComponent from "../TimestampComponent";
 import { collection, getDocs } from "firebase/firestore";
 import { getFirestore } from "firebase/firestore";
+import {useEffect, useState} from "react";
+import Link from "next/link";
 
 // function random() {
 //   const min = Math.ceil(1);
@@ -28,36 +30,53 @@ const theme = createTheme({
   },
 });
 
-export async function CollectionsData() {
+// export async function CollectionsData() {
+//   const db = getFirestore();
+//   const querySnapshot = await getDocs(collection(db, "question"));
+//
+//   querySnapshot.forEach((doc) => {
+//     console.log(doc.id, " => ", doc.data());
+//   });
+// }
+
+export default  function Cards() {
+const [cardsArray, setCardsArray] = useState([]);
+
   const db = getFirestore();
-  const querySnapshot = await getDocs(collection(db, "question"));
+  useEffect(() => {
+      getDocs(collection(db, "question"))
+          .then (snap => {
+              if (snap.docs.length>0) {
+                  let tempArray=[];
+                  snap.docs.forEach(doc => {
+                      tempArray.push ({id: doc.id, ...doc.data()});
 
-  querySnapshot.forEach((doc) => {
-    // doc.data() is never undefined for query doc snapshots
-    console.log(doc.id, " => ", doc.data());
-    return { props: { id: doc.id, ...doc.data() } };
-  });
-}
+                  })
+                  console.log(tempArray)
+                  setCardsArray(tempArray)
+              }
+          })
+          .catch (error => console.log(error))
+  }, [])
 
-export default function Cards(props) {
-  console.log("props", props);
-  CollectionsData();
+
   return (
     <>
-      <div className={styles.cards}>
-        {questionCards.map((question) => (
+              <div className={styles.cards}>
+
+                  {cardsArray.length>0? cardsArray.map((question) => (
           <Card
             className={styles.cardsWrapper}
-            key={questionCards.indexOf(question)}
+            key={question.id}
           >
             <div className={styles.cardsWrapperName}> Question</div>
             <div className={styles.cardsWrapperQuestion}>{question.title}</div>
             <div className={styles.cardsWrapperInfo}>
               {question.views} views •{" "}
-              <TimestampComponent timestamp={question.timestamp} />
+                {question.timestamp? <TimestampComponent timestamp={question.timestamp} />:<></>}
             </div>
             <div className={styles.cardsWrapperText}>
-              {question.description}
+                <Link href={"/questions/" + question.id}>{question.description}</Link>
             </div>
             <ThemeProvider theme={theme}>
               <div className={styles.cardsGradient}>
@@ -73,7 +92,8 @@ export default function Cards(props) {
               </div>
             </ThemeProvider>
           </Card>
-        ))}
+        )) : <h2>Loading</h2>
+                  }
       </div>
     </>
   );
