@@ -19,15 +19,11 @@ export default function Post(props) {
     views: 6,
     timestamp: new Date(1057165200000),
   };
-  const answer = {
-    idQ: props.question.id,
-    idA: props.answer.id,
-    answertext: props.answer.answertext,
-  };
+
   return (
     <>
-      <CardQuestion question={question} answer={answer} />
-      <CardAnswer />
+      <CardQuestion question={question} />
+      <CardAnswer question={question} />
       <div className={styles.line}>
         <div className={styles.lineText}>Realted Questions</div>
         <Link href="/pages/questions.js" className={styles.lineMore}>

@@ -39,6 +39,8 @@ const ExpandMore = styled((props) => {
 }));
 
 export default function CardAnswer(props) {
+  const questionData = props.question;
+
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
