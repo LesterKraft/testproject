@@ -30,14 +30,7 @@ const theme = createTheme({
   },
 });
 
-// export async function CollectionsData() {
-//   const db = getFirestore();
-//   const querySnapshot = await getDocs(collection(db, "question"));
-//
-//   querySnapshot.forEach((doc) => {
-//     console.log(doc.id, " => ", doc.data());
-//   });
-// }
+
 
 export default  function Cards() {
 const [cardsArray, setCardsArray] = useState([]);

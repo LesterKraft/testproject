@@ -38,7 +38,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function CardAnswer() {
+export default function CardAnswer(props) {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
