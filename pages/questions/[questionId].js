@@ -9,7 +9,6 @@ import { getFirestore } from "firebase/firestore";
 import { getQuestion } from "../../components/utility/getQuestion";
 
 export default function Post(props) {
-  console.log("props", props);
   const router = useRouter();
   const question = {
     id: props.question.id,

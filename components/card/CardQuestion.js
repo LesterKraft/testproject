@@ -56,11 +56,11 @@ export default function CardQuestion(props) {
     e.preventDefault();
     const db = getFirestore();
     await addDoc(collection(db, "answer"), {
-      id: questionData.id,
-      answertext: document.getElementById("answer").value,
+      questionId: questionData.id,
+      answerText: document.getElementById("answer").value,
     });
   }
-  console.log(questionData);
+
   return (
     <>
       <Card className={styles.card}>

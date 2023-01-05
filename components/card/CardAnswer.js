@@ -43,21 +43,19 @@ const ExpandMore = styled((props) => {
 
 export default function CardAnswer(props) {
   const questionData = props.question;
-  const [answerCounter, setanswerCounter] = useState(0);
+  let [answerCounter, setanswerCounter] = useState(0);
   const db = getFirestore();
   useEffect(() => {
-    getDocs(collection(db, "question"))
+    getDocs(collection(db, "answer"))
       .then((snap) => {
         if (snap.docs.length > 0) {
-          let tempArray = [];
-          snap.docs.map((doc) => {
-            if ((questionData.id = doc.id)) {
+          snap.docs.forEach((doc) => {
+            console.log(doc.id);
+            if (questionData.id == doc.questionId) {
               setanswerCounter(+1);
+              console.log(questionData.id);
             }
-            // tempArray.push ({id: doc.id, ...doc.data()});
           });
-          console.log(tempArray);
-          setCardsArray(tempArray);
         }
       })
       .catch((error) => console.log(error));
