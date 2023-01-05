@@ -13,6 +13,9 @@ import EditIcon from "@mui/icons-material/Edit";
 
 import ForwardIcon from "@mui/icons-material/Forward";
 import ShareIcon from "@mui/icons-material/Share";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
+
+import { useEffect, useState } from "react";
 
 const theme = createTheme({
   palette: {
@@ -40,6 +43,25 @@ const ExpandMore = styled((props) => {
 
 export default function CardAnswer(props) {
   const questionData = props.question;
+  const [answerCounter, setanswerCounter] = useState(0);
+  const db = getFirestore();
+  useEffect(() => {
+    getDocs(collection(db, "question"))
+      .then((snap) => {
+        if (snap.docs.length > 0) {
+          let tempArray = [];
+          snap.docs.map((doc) => {
+            if ((questionData.id = doc.id)) {
+              setanswerCounter(+1);
+            }
+            // tempArray.push ({id: doc.id, ...doc.data()});
+          });
+          console.log(tempArray);
+          setCardsArray(tempArray);
+        }
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
   const [expanded, setExpanded] = React.useState(false);
 
@@ -58,7 +80,7 @@ export default function CardAnswer(props) {
               aria-label="upvotes"
               startIcon={<QuestionAnswerIcon />}
             >
-              1 Answer
+              {answerCounter} Answer
             </Button>
 
             <ExpandMore
