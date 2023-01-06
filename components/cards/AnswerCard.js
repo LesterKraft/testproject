@@ -43,7 +43,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function CardAnswer(props) {
+export default function AnswerCard(props) {
   const [answerArray, setAnswerArray] = useState([]);
   const [expanded, setExpanded] = useState(false);
 

@@ -39,7 +39,7 @@ const theme = createTheme({
   },
 });
 
-export default function CardQuestion(props) {
+export default function QuestionCard(props) {
   const questionData = props.question;
 
   const [open, setOpen] = React.useState(false);
