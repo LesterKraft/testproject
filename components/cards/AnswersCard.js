@@ -1,22 +1,13 @@
 import { Card, Divider, IconButton } from "@mui/material";
 import styles from "/styles/Home.module.scss";
-import CardHeader from "@mui/material/CardHeader";
 import Collapse from "@mui/material/Collapse";
 import * as React from "react";
 import Button from "@mui/material/Button";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { styled } from "@mui/material/styles";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import EditIcon from "@mui/icons-material/Edit";
-
-import ForwardIcon from "@mui/icons-material/Forward";
-import ShareIcon from "@mui/icons-material/Share";
-import { collection, getDocs, getFirestore } from "firebase/firestore";
-
 import { useEffect, useState } from "react";
 import { getAnswers } from "../../utility/getAnswers";
-import menuItems from "../../data/menuItems";
 import AnswersElement from "./AnswerElement";
 
 const ExpandMore = styled((props) => {
