@@ -9,7 +9,7 @@ import IconButton from "@mui/material/IconButton";
 import ForwardIcon from "@mui/icons-material/Forward";
 import ShareIcon from "@mui/icons-material/Share";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import TimestampComponent from "../TimestampComponent";
+import TimestampComponent from "../../utility/timestampComponent";
 import ReplyIcon from "@mui/icons-material/Reply";
 import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";

@@ -1,4 +1,4 @@
-const menulist = [
+const menuItems = [
   {
     name: "Home",
     icon: "/menu/Home.svg",
@@ -97,4 +97,4 @@ const menulist = [
     log: true,
   },
 ];
-export default menulist;
+export default menuItems;

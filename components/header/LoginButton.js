@@ -8,9 +8,9 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import TextField from "@mui/material/TextField";
 import styles from "/styles/Home.module.scss";
-import firebaseEmailPasswordAuth from "../../auth/firebaseEmailPasswordAuth";
+import firebaseEmailPasswordAuth from "../../utility/auth/firebaseEmailPasswordAuth";
 import { useState } from "react";
-import googleAuth from "../../auth/googleAuth";
+import googleAuth from "../../utility/auth/googleAuth";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -50,7 +50,7 @@ BootstrapDialogTitle.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
 
-export default function ButtonLogin(props) {
+export default function LoginButton(props) {
   const [status, setStatus] = useState("Please Login");
   const [open, setOpen] = React.useState(false);
 

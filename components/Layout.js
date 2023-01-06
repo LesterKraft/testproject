@@ -1,6 +1,6 @@
 import Head from "next/head";
-import DisplayMenu from "./menu/DMenu";
-import HeaderBar from "./header/Nav";
+import DisplayMenu from "./menu/DisplayMenu";
+import HeaderBar from "./header/HeaderBar";
 import NextBreadcrumbs from "./NextBreadCrumbs";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 

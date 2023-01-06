@@ -6,7 +6,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { LoginItems } from "./LoginItems";
 import styles from "/styles/Home.module.scss";
-import MenuList, { MenuListAuthOff } from "./MenuList.js";
+import MenuItems, { MenuListAuthOff } from "./MenuItems.js";
 import { useState, useEffect } from "react";
 import { getAuth } from "firebase/auth";
 
@@ -104,7 +104,7 @@ export default function MobileMenu(props) {
             open={open}
           >
             <LoginItems />
-            <MenuList />
+            <MenuItems />
           </Drawer>
         </div>
       )}

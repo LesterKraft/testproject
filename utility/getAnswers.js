@@ -6,7 +6,7 @@ import {
   getFirestore,
 } from "firebase/firestore";
 
-export async function answerWhere(questionId) {
+export async function getAnswers(questionId) {
   const db = getFirestore();
   const q = query(
     collection(db, "answer"),

@@ -15,8 +15,8 @@ import ShareIcon from "@mui/icons-material/Share";
 import { collection, getDocs, getFirestore } from "firebase/firestore";
 
 import { useEffect, useState } from "react";
-import { answerWhere } from "../utility/answerWhere";
-import menulist from "../../data/menuList";
+import { getAnswers } from "../../utility/getAnswers";
+import menuItems from "../../data/menuItems";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -34,7 +34,7 @@ export default function AnswerCard(props) {
   const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
-    answerWhere(props.question.id)
+    getAnswers(props.question.id)
       .then((res) => {
         let tempArray = [];
         res.docs.forEach((doc) => {

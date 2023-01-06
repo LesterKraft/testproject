@@ -1,11 +1,11 @@
-import menulist from "../../data/menuList";
+import menuItems from "../../data/menuItems";
 import Divider from "@mui/material/Divider";
 import MenuItem from "@mui/material/MenuItem";
 import styles from "/styles/Home.module.scss";
 import Link from "next/link";
 import { getAuth, signOut } from "firebase/auth";
 
-export default function MenuList() {
+export default function MenuItems() {
   const logOut = () => {
     signOut(getAuth())
       .then(() => {
@@ -14,8 +14,8 @@ export default function MenuList() {
       .catch((err) => console.error(err));
   };
 
-  return menulist.map((list) => (
-    <div key={menulist.indexOf(list)}>
+  return menuItems.map((list) => (
+    <div key={menuItems.indexOf(list)}>
       {list.divider ? <Divider /> : <></>}
       <MenuItem
         onClick={list.log ? logOut : null}
@@ -35,8 +35,8 @@ export default function MenuList() {
 }
 
 export function MenuListAuthOff() {
-  return menulist.map((lis) => (
-    <div key={menulist.indexOf(lis)}>
+  return menuItems.map((lis) => (
+    <div key={menuItems.indexOf(lis)}>
       {lis.notauth && (
         <MenuItem component={Link} className={styles.menuItem} href={lis.url}>
           <img

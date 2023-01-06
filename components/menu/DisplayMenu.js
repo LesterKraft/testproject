@@ -1,6 +1,6 @@
 import { LoginItems } from "./LoginItems";
 import styles from "/styles/Home.module.scss";
-import MenuList, { MenuListAuthOff } from "./MenuList.js";
+import MenuItems, { MenuListAuthOff } from "./MenuItems.js";
 import { useState } from "react";
 import { getAuth } from "firebase/auth";
 
@@ -20,7 +20,7 @@ export default function DisplayMenu() {
       ) : (
         <>
           <LoginItems />
-          <MenuList />
+          <MenuItems />
         </>
       )}
     </nav>

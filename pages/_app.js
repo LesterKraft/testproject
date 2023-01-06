@@ -1,6 +1,6 @@
 import "/styles/globals.scss";
 import Layout from "/components/Layout";
-import initFirebase from "../auth/initFirebase";
+import initFirebase from "../utility/auth/initFirebase";
 
 const MyApp = (props) => {
   const { Component, pageProps } = props;

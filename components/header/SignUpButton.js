@@ -9,7 +9,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import TextField from "@mui/material/TextField";
 import styles from "/styles/Home.module.scss";
 import { useState } from "react";
-import createEmailPasswordAccount from "../../auth/createEmailPassworAccount";
+import createEmailPasswordAccount from "../../utility/auth/createEmailPassworAccount";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -49,7 +49,7 @@ BootstrapDialogTitle.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
 
-export default function ButtonLogin() {
+export default function SignUpButton() {
   const [status, setStatus] = useState("Sign Up Please");
   const [open, setOpen] = React.useState(false);
 

@@ -1,8 +1,8 @@
 import styles from "/styles/Home.module.scss";
 import Link from "next/link";
 import IconButton from "@mui/material/IconButton";
-import ButtonLogin from "./ButtonLogin";
-import ButtonSignUp from "./ButtonSignUp";
+import LoginButton from "./LoginButton";
+import ButtonSignUp from "./SignUpButton";
 import Stack from "@mui/material/Stack";
 import { getAuth, signOut } from "firebase/auth";
 import { useState } from "react";
@@ -47,7 +47,7 @@ export default function HeaderBar() {
               >
                 <SearchIcon />
               </IconButton>
-              <ButtonLogin />
+              <LoginButton />
               <ButtonSignUp />
             </Stack>
           ) : (

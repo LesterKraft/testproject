@@ -2,12 +2,11 @@ import styles from "/styles/Home.module.scss";
 import { Card } from "@mui/material";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 import Button from "@mui/material/Button";
-import TimestampComponent from "../TimestampComponent";
+import TimestampComponent from "../../utility/timestampComponent";
 import Link from "next/link";
 
 export default function QuestionCardMini(props) {
   const question = props.question;
-  console.log(question.id);
   return (
     <>
       <Card className={styles.cardsWrapper}>
