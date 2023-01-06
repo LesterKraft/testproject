@@ -37,7 +37,7 @@ export default function AnswerCard(props) {
     getAnswers(props.question.id)
       .then((res) => {
         let tempArray = [];
-        res.docs.forEach((doc) => {
+        res.docs.slice.forEach((doc) => {
           tempArray.push({ id: doc.id, ...doc.data() });
         });
         setAnswerArray(tempArray);

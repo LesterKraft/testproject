@@ -3,10 +3,11 @@ import AnswerCard from "../../components/cards/AnswerCard";
 import QuestionCard from "../../components/cards/QuestionCard";
 import styles from "/styles/Home.module.scss";
 import Link from "next/link";
-import Cards from "../../components/cards/QuestionCardMini";
-import { doc, getDoc } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import { getFirestore } from "firebase/firestore";
 import { getQuestion } from "../../utility/getQuestion";
+import QuestionCardMini from "../../components/cards/QuestionCardMini";
+import { useEffect, useState } from "react";
 
 export default function Post(props) {
   const router = useRouter();
@@ -18,6 +19,23 @@ export default function Post(props) {
     views: 6,
     timestamp: new Date(1057165200000),
   };
+  const [cardsArray, setCardsArray] = useState([]);
+
+  const db = getFirestore();
+  useEffect(() => {
+    getDocs(collection(db, "question"))
+      .then((snap) => {
+        if (snap.docs.length > 0) {
+          let tempArray = [];
+          snap.docs.slice(0, 5).forEach((doc) => {
+            tempArray.push({ id: doc.id, ...doc.data() });
+          });
+
+          setCardsArray(tempArray);
+        }
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
   return (
     <>
@@ -29,7 +47,15 @@ export default function Post(props) {
           SEE MORE
         </Link>
       </div>
-      <Cards />
+      <div className={styles.cards}>
+        {cardsArray.length > 0 ? (
+          cardsArray.map((question) => (
+            <QuestionCardMini key={question.id} question={question} />
+          ))
+        ) : (
+          <h2>Loading</h2>
+        )}
+      </div>
     </>
   );
 }
