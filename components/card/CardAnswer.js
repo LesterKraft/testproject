@@ -16,6 +16,8 @@ import ShareIcon from "@mui/icons-material/Share";
 import { collection, getDocs, getFirestore } from "firebase/firestore";
 
 import { useEffect, useState } from "react";
+import { answerWhere } from "../utility/answerWhere";
+import menulist from "../../data/menuList";
 
 const theme = createTheme({
   palette: {
@@ -42,26 +44,23 @@ const ExpandMore = styled((props) => {
 }));
 
 export default function CardAnswer(props) {
-  const questionData = props.question;
-  let [answerCounter, setanswerCounter] = useState(0);
-  const db = getFirestore();
-  useEffect(() => {
-    getDocs(collection(db, "answer"))
-      .then((snap) => {
-        if (snap.docs.length > 0) {
-          snap.docs.forEach((doc) => {
-            console.log(doc.id);
-            if (questionData.id == doc.questionId) {
-              setanswerCounter(+1);
-              console.log(questionData.id);
-            }
-          });
-        }
-      })
-      .catch((error) => console.log(error));
-  }, []);
+  const [answerArray, setAnswerArray] = useState([]);
+  const [expanded, setExpanded] = useState(false);
 
-  const [expanded, setExpanded] = React.useState(false);
+  useEffect(() => {
+    answerWhere(props.question.id)
+      .then((res) => {
+        let tempArray = [];
+        res.docs.forEach((doc) => {
+          tempArray.push({ id: doc.id, ...doc.data() });
+        });
+        setAnswerArray(tempArray);
+        console.log(tempArray);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [props.question]);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -78,7 +77,7 @@ export default function CardAnswer(props) {
               aria-label="upvotes"
               startIcon={<QuestionAnswerIcon />}
             >
-              {answerCounter} Answer
+              {answerArray.length} Answer
             </Button>
 
             <ExpandMore
@@ -98,73 +97,68 @@ export default function CardAnswer(props) {
             unmountOnExit
           >
             <Divider className={styles.answerDivider} />
-            <div className={styles.answerMain}>
-              <CardHeader
-                className={styles.answerMainHeader}
-                avatar={
-                  <img
-                    className={styles.answerMainHeaderAva}
-                    src="/menu/ava.png"
-                    alt="ava"
-                  />
-                }
-                action={
+            {answerArray.map((list) => (
+              <div className={styles.answerMain} key={list.id}>
+                <CardHeader
+                  className={styles.answerMainHeader}
+                  avatar={
+                    <img
+                      className={styles.answerMainHeaderAva}
+                      src="/menu/ava.png"
+                      alt="ava"
+                    />
+                  }
+                  action={
+                    <Button
+                      className={styles.answerMainHeaderEdit}
+                      color="red"
+                      size="large"
+                      aria-label="edit"
+                      startIcon={
+                        <EditIcon className={styles.answerMainHeaderEditIcon} />
+                      }
+                    >
+                      Edit
+                    </Button>
+                  }
+                  title={
+                    <div className={styles.answerMainHeaderTitle}>
+                      Mr Usman Jaffer
+                    </div>
+                  }
+                  subheader={
+                    <div className={styles.answerMainHeaderSubheader}>
+                      Vascular Surgeon
+                    </div>
+                  }
+                />
+                <div className={styles.answerMainText}>{list.answerText}</div>
+                <div className={styles.answerMainView}>1 view • Now</div>
+                <div className={styles.cardFooter}>
                   <Button
-                    className={styles.answerMainHeaderEdit}
+                    className={styles.cardFooterUploads}
                     color="red"
                     size="large"
-                    aria-label="edit"
-                    startIcon={
-                      <EditIcon className={styles.answerMainHeaderEditIcon} />
-                    }
+                    aria-label="upvotes"
+                    startIcon={<ForwardIcon className={styles.upvote} />}
                   >
-                    Edit
+                    Upvote
                   </Button>
-                }
-                title={
-                  <div className={styles.answerMainHeaderTitle}>
-                    Mr Usman Jaffer
-                  </div>
-                }
-                subheader={
-                  <div className={styles.answerMainHeaderSubheader}>
-                    Vascular Surgeon
-                  </div>
-                }
-              />
-              <div className={styles.answerMainText}>
-                If you find yourself dealing with painful varicose veins,
-                cramping in your legs, swelling, or restless legs, chances are
-                good EVLA is right for you. EVLA focuses on veins that are
-                larger and deeper in your legs — the smaller, more surface once
-                are better suited for sclerotherapy. Your vascular specialist
-                will be sure to come up with a treatment plan that caters to
-                your specific needs, not a generalized one-size-fits-all plan.
-              </div>
-              <div className={styles.answerMainView}>1 view • Now</div>
-              <div className={styles.cardFooter}>
-                <Button
-                  className={styles.cardFooterUploads}
-                  color="red"
-                  size="large"
-                  aria-label="upvotes"
-                  startIcon={<ForwardIcon className={styles.upvote} />}
-                >
-                  Upvote
-                </Button>
-                <div style={{ flexGrow: "1" }} />
+                  <div style={{ flexGrow: "1" }} />
 
-                <IconButton aria-label="down" size="large">
-                  <ForwardIcon className={styles.downvote} />
-                </IconButton>
-                <IconButton aria-label="share" size="large">
-                  <ShareIcon />
-                </IconButton>
-                <IconButton aria-label="more" size="large">
-                  <MoreHorizIcon />
-                </IconButton>
+                  <IconButton aria-label="down" size="large">
+                    <ForwardIcon className={styles.downvote} />
+                  </IconButton>
+                  <IconButton aria-label="share" size="large">
+                    <ShareIcon />
+                  </IconButton>
+                  <IconButton aria-label="more" size="large">
+                    <MoreHorizIcon />
+                  </IconButton>
+                </div>
+                <Divider className={styles.answerDivider} />
               </div>
-            </div>
+            ))}
           </Collapse>
         </Card>
       </ThemeProvider>

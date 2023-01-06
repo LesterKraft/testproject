@@ -16,7 +16,7 @@ export default function MenuList() {
 
   return menulist.map((list) => (
     <div key={menulist.indexOf(list)}>
-      {list.divider && <Divider />}
+      {list.divider ? <Divider /> : <></>}
       <MenuItem
         onClick={list.log ? logOut : null}
         component={Link}
