@@ -3,7 +3,7 @@ import AnswerCard from "../../components/cards/AnswerCard";
 import QuestionCard from "../../components/cards/QuestionCard";
 import styles from "/styles/Home.module.scss";
 import Link from "next/link";
-import Cards from "../../components/cards/Cards";
+import Cards from "../../components/cards/QuestionCardMini";
 import { doc, getDoc } from "firebase/firestore";
 import { getFirestore } from "firebase/firestore";
 import { getQuestion } from "../../components/utility/getQuestion";
