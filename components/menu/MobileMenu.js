@@ -4,7 +4,6 @@ import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { LoginItems } from "./LoginItems";
 import styles from "/styles/Home.module.scss";
 import MenuList, { MenuListAuthOff } from "./MenuList.js";
@@ -12,15 +11,6 @@ import { useState, useEffect } from "react";
 import { getAuth } from "firebase/auth";
 
 const drawerWidth = 235;
-
-const themeIcon = createTheme({
-  palette: {
-    white: {
-      main: "#ffffff",
-      contrastText: "#fff",
-    },
-  },
-});
 
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
@@ -38,8 +28,9 @@ export default function MobileMenu(props) {
   useEffect(() => {
     if (props.user) {
       setCurrentUser(props.user);
-    } else {setCurrentUser(null)}
-
+    } else {
+      setCurrentUser(null);
+    }
   }, [props]);
 
   const theme = useTheme();
@@ -55,70 +46,68 @@ export default function MobileMenu(props) {
 
   return (
     <>
-      <ThemeProvider theme={themeIcon}>
-        {!open ? (
-          <IconButton
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{ mr: 0 }}
-            className={styles.iconMenu}
-            color="white"
-            size="large"
-          >
-            <MenuIcon />
-          </IconButton>
-        ) : (
-          <IconButton
-            aria-label="open drawer"
-            onClick={handleDrawerClose}
-            // onClick={handleDrawerClose}
-            edge="start"
-            sx={{ mr: 0 }}
-            className={styles.iconMenu}
-            color="white"
-            size="large"
-          >
-            <CloseIcon />
-          </IconButton>
-        )}
-        {!currentUser ? (
-          <div className={styles.drawerMenu}>
-            <Drawer
-              sx={{
-                "& .MuiDrawer-paper": {
-                  // width: drawerWidth,
+      {!open ? (
+        <IconButton
+          aria-label="open drawer"
+          onClick={handleDrawerOpen}
+          edge="start"
+          sx={{ mr: 0 }}
+          className={styles.iconMenu}
+          color="white"
+          size="large"
+        >
+          <MenuIcon />
+        </IconButton>
+      ) : (
+        <IconButton
+          aria-label="open drawer"
+          onClick={handleDrawerClose}
+          // onClick={handleDrawerClose}
+          edge="start"
+          sx={{ mr: 0 }}
+          className={styles.iconMenu}
+          color="white"
+          size="large"
+        >
+          <CloseIcon />
+        </IconButton>
+      )}
+      {!currentUser ? (
+        <div className={styles.drawerMenu}>
+          <Drawer
+            sx={{
+              "& .MuiDrawer-paper": {
+                // width: drawerWidth,
 
-                  boxSizing: "border-box",
-                },
-              }}
-              variant="persistent"
-              anchor="left"
-              open={open}
-            >
-              <MenuListAuthOff />
-            </Drawer>
-          </div>
-        ) : (
-          <div className={styles.drawerMenu}>
-            <Drawer
-              sx={{
-                "& .MuiDrawer-paper": {
-                  // width: drawerWidth,
+                boxSizing: "border-box",
+              },
+            }}
+            variant="persistent"
+            anchor="left"
+            open={open}
+          >
+            <MenuListAuthOff />
+          </Drawer>
+        </div>
+      ) : (
+        <div className={styles.drawerMenu}>
+          <Drawer
+            sx={{
+              "& .MuiDrawer-paper": {
+                // width: drawerWidth,
 
-                  boxSizing: "border-box",
-                },
-              }}
-              variant="persistent"
-              anchor="left"
-              open={open}
-            >
-              <LoginItems />
-              <MenuList />
-            </Drawer>
-          </div>
-        )}
-      </ThemeProvider>
+                boxSizing: "border-box",
+              },
+            }}
+            variant="persistent"
+            anchor="left"
+            open={open}
+          >
+            <LoginItems />
+            <MenuList />
+          </Drawer>
+        </div>
+      )}
     </>
   );
 }

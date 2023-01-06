@@ -6,21 +6,11 @@ import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import styles from "/styles/Home.module.scss";
 import firebaseEmailPasswordAuth from "../../auth/firebaseEmailPasswordAuth";
 import { useState } from "react";
 import googleAuth from "../../auth/googleAuth";
-
-const theme = createTheme({
-  palette: {
-    black: {
-      main: "#2a2a2b",
-      contrastText: "#fff",
-    },
-  },
-});
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -97,17 +87,15 @@ export default function ButtonLogin(props) {
 
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <Button
-          color="black"
-          size="large"
-          variant="contained"
-          onClick={handleClickOpen}
-          className={styles.loginButton}
-        >
-          LOGIN
-        </Button>
-      </ThemeProvider>
+      <Button
+        color="black"
+        size="large"
+        variant="contained"
+        onClick={handleClickOpen}
+        className={styles.loginButton}
+      >
+        LOGIN
+      </Button>
       {!isSignedIn ? (
         <BootstrapDialog
           onClose={handleClose}
@@ -145,26 +133,24 @@ export default function ButtonLogin(props) {
             >
               LOG IN
             </Button>
-            <ThemeProvider theme={theme}>
-              <Button
-                className={styles.dialogButton}
-                size="large"
-                variant="contained"
-                color="black"
-                onClick={() => {
-                  googleAuth()
-                    .then((user) => {
-                      console.log(user);
-                      handleClose();
-                    })
-                    .catch((error) => {
-                      console.error(error);
-                    });
-                }}
-              >
-                Google Authorization
-              </Button>
-            </ThemeProvider>
+            <Button
+              className={styles.dialogButton}
+              size="large"
+              variant="contained"
+              color="black"
+              onClick={() => {
+                googleAuth()
+                  .then((user) => {
+                    console.log(user);
+                    handleClose();
+                  })
+                  .catch((error) => {
+                    console.error(error);
+                  });
+              }}
+            >
+              Google Authorization
+            </Button>
           </form>
         </BootstrapDialog>
       ) : null}

@@ -2,6 +2,29 @@ import Head from "next/head";
 import DisplayMenu from "./menu/DMenu";
 import HeaderBar from "./header/Nav";
 import NextBreadcrumbs from "./NextBreadCrumbs";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+const theme = createTheme({
+  palette: {
+    red: {
+      main: "#b71c1c",
+      contrastText: "#fff",
+    },
+
+    grey: {
+      main: "#4d4d4d",
+      contrastText: "#fff",
+    },
+    black: {
+      main: "#2a2a2b",
+      contrastText: "#fff",
+    },
+    white: {
+      main: "#ffffff",
+      contrastText: "#fff",
+    },
+  },
+});
 
 export default function Layout({ children, title, description, keywords }) {
   return (
@@ -14,14 +37,16 @@ export default function Layout({ children, title, description, keywords }) {
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
       </Head>
-      <HeaderBar />
-      <div className="layoutGrid">
-        <DisplayMenu />
-        <main>
-          <NextBreadcrumbs />
-          {children}
-        </main>
-      </div>
+      <ThemeProvider theme={theme}>
+        <HeaderBar />
+        <div className="layoutGrid">
+          <DisplayMenu />
+          <main>
+            <NextBreadcrumbs />
+            {children}
+          </main>
+        </div>
+      </ThemeProvider>
     </>
   );
 }

@@ -1,4 +1,4 @@
-import Cards from "../components/card/Cards";
+import Cards from "../../components/cards/Cards";
 
 export default function index() {
   return (

@@ -6,20 +6,10 @@ import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import styles from "/styles/Home.module.scss";
 import { useState } from "react";
 import createEmailPasswordAccount from "../../auth/createEmailPassworAccount";
-
-const theme = createTheme({
-  palette: {
-    red: {
-      main: "#c8000d",
-      contrastText: "#fff",
-    },
-  },
-});
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -93,17 +83,15 @@ export default function ButtonLogin() {
   const [error, setError] = useState(false);
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <Button
-          color="red"
-          size="large"
-          variant="contained"
-          onClick={handleClickOpen}
-          className={styles.signupButton}
-        >
-          SIGN UP
-        </Button>
-      </ThemeProvider>
+      <Button
+        color="red"
+        size="large"
+        variant="contained"
+        onClick={handleClickOpen}
+        className={styles.signupButton}
+      >
+        SIGN UP
+      </Button>
       {!isSignedIn ? (
         <BootstrapDialog
           onClose={handleClose}

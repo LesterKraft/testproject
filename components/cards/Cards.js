@@ -2,33 +2,12 @@ import styles from "/styles/Home.module.scss";
 import { Card } from "@mui/material";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 import Button from "@mui/material/Button";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import TimestampComponent from "../TimestampComponent";
 import { collection, getDocs } from "firebase/firestore";
 import { getFirestore } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-
-// function random() {
-//   const min = Math.ceil(1);
-//   const max = Math.floor(30);
-//   return Math.floor(Math.random() * (max - min + 1)) + min;
-// }
-
-const theme = createTheme({
-  palette: {
-    red: {
-      main: "#b71c1c",
-      contrastText: "#fff",
-    },
-
-    grey: {
-      main: "#4d4d4d",
-      contrastText: "#fff",
-    },
-  },
-});
 
 export default function Cards() {
   const [cardsArray, setCardsArray] = useState([]);
@@ -72,19 +51,18 @@ export default function Cards() {
                   {question.description}
                 </Link>
               </div>
-              <ThemeProvider theme={theme}>
-                <div className={styles.cardsGradient}>
-                  <Button
-                    className={styles.cardsWrapperAnswers}
-                    color="grey"
-                    size="large"
-                    aria-label="upvotes"
-                    startIcon={<QuestionAnswerIcon />}
-                  >
-                    {question.answers} Answer
-                  </Button>
-                </div>
-              </ThemeProvider>
+
+              <div className={styles.cardsGradient}>
+                <Button
+                  className={styles.cardsWrapperAnswers}
+                  color="grey"
+                  size="large"
+                  aria-label="upvotes"
+                  startIcon={<QuestionAnswerIcon />}
+                >
+                  {question.answers} Answer
+                </Button>
+              </div>
             </Card>
           ))
         ) : (

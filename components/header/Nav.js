@@ -6,18 +6,8 @@ import ButtonSignUp from "./ButtonSignUp";
 import Stack from "@mui/material/Stack";
 import { getAuth, signOut } from "firebase/auth";
 import { useState } from "react";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import MobileMenu from "../menu/MobileMenu";
 import SearchIcon from "@mui/icons-material/Search";
-
-const theme = createTheme({
-  palette: {
-    white: {
-      main: "#ffffff",
-      contrastText: "#fff",
-    },
-  },
-});
 
 export default function HeaderBar() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -50,29 +40,25 @@ export default function HeaderBar() {
         <div className={styles.wrapperButtons}>
           {!currentUser ? (
             <Stack spacing={1} direction="row">
-              <ThemeProvider theme={theme}>
-                <IconButton
-                  className={styles.mobileSearch}
-                  color="white"
-                  size="small"
-                >
-                  <SearchIcon />
-                </IconButton>
-              </ThemeProvider>
+              <IconButton
+                className={styles.mobileSearch}
+                color="white"
+                size="small"
+              >
+                <SearchIcon />
+              </IconButton>
               <ButtonLogin />
               <ButtonSignUp />
             </Stack>
           ) : (
             <>
-              <ThemeProvider theme={theme}>
-                <IconButton
-                  className={styles.mobileSearch}
-                  color="white"
-                  size="small"
-                >
-                  <SearchIcon />
-                </IconButton>
-              </ThemeProvider>
+              <IconButton
+                className={styles.mobileSearch}
+                color="white"
+                size="small"
+              >
+                <SearchIcon />
+              </IconButton>
               <IconButton>
                 <img
                   className={styles.headerQuestion}
