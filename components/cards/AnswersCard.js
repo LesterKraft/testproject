@@ -17,6 +17,7 @@ import { collection, getDocs, getFirestore } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { getAnswers } from "../../utility/getAnswers";
 import menuItems from "../../data/menuItems";
+import AnswersElement from "./AnswerElement";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -29,7 +30,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function AnswerCard(props) {
+export default function AnswersCard(props) {
   const [answerArray, setAnswerArray] = useState([]);
   const [expanded, setExpanded] = useState(false);
 
@@ -83,66 +84,7 @@ export default function AnswerCard(props) {
         >
           <Divider className={styles.answerDivider} />
           {answerArray.map((list) => (
-            <div className={styles.answerMain} key={list.id}>
-              <CardHeader
-                className={styles.answerMainHeader}
-                avatar={
-                  <img
-                    className={styles.answerMainHeaderAva}
-                    src="/menu/ava.png"
-                    alt="ava"
-                  />
-                }
-                action={
-                  <Button
-                    className={styles.answerMainHeaderEdit}
-                    color="red"
-                    size="large"
-                    aria-label="edit"
-                    startIcon={
-                      <EditIcon className={styles.answerMainHeaderEditIcon} />
-                    }
-                  >
-                    Edit
-                  </Button>
-                }
-                title={
-                  <div className={styles.answerMainHeaderTitle}>
-                    Mr Usman Jaffer
-                  </div>
-                }
-                subheader={
-                  <div className={styles.answerMainHeaderSubheader}>
-                    Vascular Surgeon
-                  </div>
-                }
-              />
-              <div className={styles.answerMainText}>{list.answerText}</div>
-              <div className={styles.answerMainView}>1 view • Now</div>
-              <div className={styles.cardFooter}>
-                <Button
-                  className={styles.cardFooterUploads}
-                  color="red"
-                  size="large"
-                  aria-label="upvotes"
-                  startIcon={<ForwardIcon className={styles.upvote} />}
-                >
-                  Upvote
-                </Button>
-                <div style={{ flexGrow: "1" }} />
-
-                <IconButton aria-label="down" size="large">
-                  <ForwardIcon className={styles.downvote} />
-                </IconButton>
-                <IconButton aria-label="share" size="large">
-                  <ShareIcon />
-                </IconButton>
-                <IconButton aria-label="more" size="large">
-                  <MoreHorizIcon />
-                </IconButton>
-              </div>
-              <Divider className={styles.answerDivider} />
-            </div>
+            <AnswersElement list={list} />
           ))}
         </Collapse>
       </Card>

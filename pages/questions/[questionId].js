@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import AnswerCard from "../../components/cards/AnswerCard";
+import AnswersCard from "../../components/cards/AnswersCard";
 import QuestionCard from "../../components/cards/QuestionCard";
 import styles from "/styles/Home.module.scss";
 import Link from "next/link";
@@ -40,10 +40,10 @@ export default function Post(props) {
   return (
     <>
       <QuestionCard question={question} />
-      <AnswerCard question={question} />
+      <AnswersCard question={question} />
       <div className={styles.line}>
         <div className={styles.lineText}>Realted Questions</div>
-        <Link href="/pages/questions/index.js" className={styles.lineMore}>
+        <Link href="/questions/" className={styles.lineMore}>
           SEE MORE
         </Link>
       </div>
