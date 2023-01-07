@@ -15,7 +15,7 @@ export default function Post(props) {
     title: props.question.title,
     description: props.question.description,
     tags: props.question.tags,
-    views: 6,
+    views: props.question.views,
     timestamp: props.question.timestamp,
   };
   const [cardsArray, setCardsArray] = useState([]);

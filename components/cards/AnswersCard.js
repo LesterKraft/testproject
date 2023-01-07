@@ -46,7 +46,7 @@ export default function AnswersCard(props) {
   return (
     <>
       <Card className={styles.answer}>
-        <div className={styles.answerTop}>
+        <div className={styles.answerTop} onClick={handleExpandClick}>
           <Button
             className={styles.answerTopAnswer}
             color="grey"
