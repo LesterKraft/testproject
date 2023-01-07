@@ -30,6 +30,7 @@ export function LoginItems({ avatar, name, profession }) {
       description: document.getElementById("description").value,
       tags: document.getElementById("tags").value.split(","),
       timestamp: new Date().getTime(),
+      views: Math.floor(Math.random() * 50),
     });
   }
 
