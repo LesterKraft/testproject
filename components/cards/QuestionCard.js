@@ -40,7 +40,7 @@ export default function QuestionCard(props) {
   async function formSubmit(e) {
     e.preventDefault();
     const db = getFirestore();
-    await addDoc(collection(db, "answer"), {
+    await addDoc(collection(db, "answers"), {
       questionId: questionData.id,
       answerText: document.getElementById("answer").value,
     });

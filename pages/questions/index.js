@@ -9,9 +9,9 @@ export default function QuestionsIndex() {
 
   const db = getFirestore();
   useEffect(() => {
-    getDocs(collection(db, "question"))
+    getDocs(collection(db, "questions"))
       .then((snap) => {
-        if (snap.docs.length > 0) {
+        if (Array.isArray(snap.docs) && snap.docs.length > 0) {
           let tempArray = [];
           snap.docs.forEach((doc) => {
             tempArray.push({ id: doc.id, ...doc.data() });

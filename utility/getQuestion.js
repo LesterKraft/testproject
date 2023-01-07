@@ -3,15 +3,12 @@ import { getFirestore } from "firebase/firestore";
 
 export async function getQuestion(questionId) {
   const db = getFirestore();
-  const docRef = doc(db, "question", questionId);
+  const docRef = doc(db, "questions", questionId);
   const docSnap = await getDoc(docRef);
 
   if (docSnap.exists()) {
-
-    return docSnap
-
-
+    return docSnap;
   } else {
-    return null
+    return null;
   }
 }

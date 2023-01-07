@@ -9,7 +9,7 @@ import {
 export async function getAnswers(questionId) {
   const db = getFirestore();
   const q = query(
-    collection(db, "answer"),
+    collection(db, "answers"),
     where("questionId", "==", questionId)
   );
 

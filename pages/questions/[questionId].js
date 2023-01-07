@@ -3,7 +3,7 @@ import AnswersCard from "../../components/cards/AnswersCard";
 import QuestionCard from "../../components/cards/QuestionCard";
 import styles from "/styles/Home.module.scss";
 import Link from "next/link";
-import { collection, doc, getDoc, getDocs } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { getFirestore } from "firebase/firestore";
 import { getQuestion } from "../../utility/getQuestion";
 import QuestionCardMini from "../../components/cards/QuestionCardMini";
@@ -23,9 +23,9 @@ export default function Post(props) {
 
   const db = getFirestore();
   useEffect(() => {
-    getDocs(collection(db, "question"))
+    getDocs(collection(db, "questions"))
       .then((snap) => {
-        if (snap.docs.length > 0) {
+        if (Array.isArray(snap.docs) && snap.docs.length > 0) {
           let tempArray = [];
           snap.docs.slice(0, 5).forEach((doc) => {
             tempArray.push({ id: doc.id, ...doc.data() });

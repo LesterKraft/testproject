@@ -6,22 +6,24 @@ import TimestampComponent from "../../utility/timestampComponent";
 import Link from "next/link";
 
 export default function QuestionCardMini(props) {
-  const question = props.question;
+  const questionData = props.question;
   return (
     <>
       <Card className={styles.cardsWrapper}>
         <div className={styles.cardsWrapperName}>Question</div>
-        <div className={styles.cardsWrapperQuestion}>{question.title}</div>
+        <div className={styles.cardsWrapperQuestion}>{questionData.title}</div>
         <div className={styles.cardsWrapperInfo}>
-          {question.views} views •{" "}
-          {question.timestamp ? (
-            <TimestampComponent timestamp={question.timestamp} />
+          {questionData.views} views •{" "}
+          {questionData.timestamp ? (
+            <TimestampComponent timestamp={questionData.timestamp} />
           ) : (
             <></>
           )}
         </div>
         <div className={styles.cardsWrapperText}>
-          <Link href={"/questions/" + question.id}>{question.description}</Link>
+          <Link href={"/questions/" + questionData.id}>
+            {questionData.description}
+          </Link>
         </div>
 
         <div className={styles.cardsGradient}>
@@ -32,7 +34,7 @@ export default function QuestionCardMini(props) {
             aria-label="upvotes"
             startIcon={<QuestionAnswerIcon />}
           >
-            {question.answers} Answer
+            {questionData.answers} Answer
           </Button>
         </div>
       </Card>

@@ -75,7 +75,7 @@ export default function AnswersCard(props) {
         >
           <Divider className={styles.answerDivider} />
           {answerArray.map((list) => (
-            <AnswersElement list={list} />
+            <AnswersElement list={list} key={list.id} />
           ))}
         </Collapse>
       </Card>

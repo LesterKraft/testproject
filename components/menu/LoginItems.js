@@ -24,7 +24,7 @@ export function LoginItems({ avatar, name, profession }) {
   async function formSubmit(e) {
     e.preventDefault();
     const db = getFirestore();
-    await setDoc(doc(db, "question", document.getElementById("title").value), {
+    await setDoc(doc(db, "questions", document.getElementById("title").value), {
       title: document.getElementById("title").value,
       description: document.getElementById("description").value,
       tags: document.getElementById("tags").value.split(","),
