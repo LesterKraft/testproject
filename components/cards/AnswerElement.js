@@ -6,6 +6,7 @@ import ForwardIcon from "@mui/icons-material/Forward";
 import { Divider, IconButton } from "@mui/material";
 import ShareIcon from "@mui/icons-material/Share";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import TimestampComponent from "../../utility/timestampComponent";
 
 export default function AnswersElement(props) {
   const list = props.list;
@@ -44,7 +45,9 @@ export default function AnswersElement(props) {
           }
         />
         <div className={styles.answerMainText}>{list.answerText}</div>
-        <div className={styles.answerMainView}>1 view • Now</div>
+        <div className={styles.answerMainView}>
+          {list.views} view • <TimestampComponent timestamp={list.timestamp} />
+        </div>
         <div className={styles.cardFooter}>
           <Button
             className={styles.cardFooterUploads}

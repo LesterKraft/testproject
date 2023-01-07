@@ -37,8 +37,8 @@ export default function QuestionCard(props) {
     await addDoc(collection(db, "answers"), {
       questionId: questionData.id,
       answerText: document.getElementById("answer").value,
-      // timestamp: new Date().getTime(),
-      // views: Math.floor(Math.random() * 50),
+      timestamp: new Date().getTime(),
+      views: Math.floor(Math.random() * 50),
     });
   }
 

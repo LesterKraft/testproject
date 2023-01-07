@@ -61,7 +61,8 @@ export default function Post(props) {
 
 export async function getServerSideProps(context) {
   const snapshot = await getQuestion(context.query.questionId);
-  const question = snapshot.data();
+  const question = { id: snapshot.id, ...snapshot.data() };
+
   return {
     props: { question: question },
   };
