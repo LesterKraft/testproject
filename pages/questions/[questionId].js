@@ -10,14 +10,13 @@ import QuestionCardMini from "../../components/cards/QuestionCardMini";
 import { useEffect, useState } from "react";
 
 export default function Post(props) {
-  const router = useRouter();
   const question = {
     id: props.question.id,
     title: props.question.title,
     description: props.question.description,
     tags: props.question.tags,
     views: 6,
-    timestamp: new Date(1057165200000),
+    timestamp: props.question.timestamp,
   };
   const [cardsArray, setCardsArray] = useState([]);
 
@@ -62,17 +61,8 @@ export default function Post(props) {
 
 export async function getServerSideProps(context) {
   const snapshot = await getQuestion(context.query.questionId);
-
-  if (snapshot.exists()) {
-    return {
-      props: {
-        question: {
-          id: snapshot.id,
-          ...snapshot.data(),
-        },
-      },
-    };
-  } else {
-    return null;
-  }
+  const question = snapshot.data();
+  return {
+    props: { question: question },
+  };
 }

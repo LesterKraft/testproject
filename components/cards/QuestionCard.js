@@ -18,12 +18,6 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import { collection, doc, getFirestore, addDoc } from "firebase/firestore";
 
-function calculateTime(timestamp) {
-  const today = new Date().getTime();
-  const dif = (today - timestamp) / 1000 / 60 / 60 / 24 / 365;
-  return dif;
-}
-
 export default function QuestionCard(props) {
   const questionData = props.question;
 
@@ -43,6 +37,8 @@ export default function QuestionCard(props) {
     await addDoc(collection(db, "answers"), {
       questionId: questionData.id,
       answerText: document.getElementById("answer").value,
+      // timestamp: new Date().getTime(),
+      // views: Math.floor(Math.random() * 50),
     });
   }
 

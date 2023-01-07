@@ -7,7 +7,7 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
-import { doc, setDoc } from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore";
 import { getFirestore } from "firebase/firestore";
 
 export function LoginItems({ avatar, name, profession }) {
@@ -23,11 +23,13 @@ export function LoginItems({ avatar, name, profession }) {
 
   async function formSubmit(e) {
     e.preventDefault();
+
     const db = getFirestore();
-    await setDoc(doc(db, "questions", document.getElementById("title").value), {
+    await addDoc(collection(db, "questions"), {
       title: document.getElementById("title").value,
       description: document.getElementById("description").value,
       tags: document.getElementById("tags").value.split(","),
+      timestamp: new Date().getTime(),
     });
   }
 
