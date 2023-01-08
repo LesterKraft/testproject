@@ -6,7 +6,7 @@ import ForwardIcon from "@mui/icons-material/Forward";
 import { Divider, IconButton } from "@mui/material";
 import ShareIcon from "@mui/icons-material/Share";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import TimestampComponent from "../../utility/timestampComponent";
+import TimestampComponent from "../../services/timestampComponent";
 
 export default function AnswersElement(props) {
   const list = props.list;

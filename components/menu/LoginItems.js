@@ -7,8 +7,7 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
-import { addDoc, collection } from "firebase/firestore";
-import { getFirestore } from "firebase/firestore";
+import AddQuestion from "../../services/firestore/addQuestion";
 
 export function LoginItems({ avatar, name, profession }) {
   const [open, setOpen] = React.useState(false);
@@ -21,17 +20,16 @@ export function LoginItems({ avatar, name, profession }) {
     setOpen(false);
   };
 
-  async function formSubmit(e) {
+  function formSubmit(e) {
     e.preventDefault();
-
-    const db = getFirestore();
-    await addDoc(collection(db, "questions"), {
+    const question = {
       title: document.getElementById("title").value,
       description: document.getElementById("description").value,
       tags: document.getElementById("tags").value.split(","),
       timestamp: new Date().getTime(),
       views: Math.floor(Math.random() * 50),
-    });
+    };
+    AddQuestion(question);
   }
 
   return (

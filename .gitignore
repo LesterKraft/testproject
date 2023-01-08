@@ -39,4 +39,4 @@ next-env.d.ts
 /utils/db/serviceAccountKey.json
 
 # init firebase
-/utility/auth/initFirebase.js
+/services/auth/initFirebase.js

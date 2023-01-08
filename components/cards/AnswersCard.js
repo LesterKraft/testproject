@@ -7,7 +7,7 @@ import { styled } from "@mui/material/styles";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useEffect, useState } from "react";
-import { getAnswers } from "../../utility/getAnswers";
+import { getAnswers } from "../../services/firestore/getAnswers";
 import AnswersElement from "./AnswerElement";
 
 const ExpandMore = styled((props) => {

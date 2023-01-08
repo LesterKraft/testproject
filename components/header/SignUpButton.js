@@ -9,7 +9,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import TextField from "@mui/material/TextField";
 import styles from "/styles/Home.module.scss";
 import { useState } from "react";
-import createEmailPasswordAccount from "../../utility/auth/createEmailPassworAccount";
+import createEmailPasswordAccount from "../../services/auth/createEmailPassworAccount";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {

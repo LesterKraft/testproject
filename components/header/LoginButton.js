@@ -8,9 +8,9 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import TextField from "@mui/material/TextField";
 import styles from "/styles/Home.module.scss";
-import firebaseEmailPasswordAuth from "../../utility/auth/firebaseEmailPasswordAuth";
+import firebaseEmailPasswordAuth from "../../services/auth/firebaseEmailPasswordAuth";
 import { useState } from "react";
-import googleAuth from "../../utility/auth/googleAuth";
+import googleAuth from "../../services/auth/googleAuth";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {

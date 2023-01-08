@@ -5,7 +5,7 @@ import styles from "/styles/Home.module.scss";
 import Link from "next/link";
 import { collection, getDocs } from "firebase/firestore";
 import { getFirestore } from "firebase/firestore";
-import { getQuestion } from "../../utility/getQuestion";
+import { getQuestion } from "../../services/firestore/getQuestion";
 import QuestionCardMini from "../../components/cards/QuestionCardMini";
 import { useEffect, useState } from "react";
 

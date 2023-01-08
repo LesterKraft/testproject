@@ -2,7 +2,7 @@ import styles from "/styles/Home.module.scss";
 import { Card } from "@mui/material";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 import Button from "@mui/material/Button";
-import TimestampComponent from "../../utility/timestampComponent";
+import TimestampComponent from "../../services/timestampComponent";
 import Link from "next/link";
 
 export default function QuestionCardMini(props) {
