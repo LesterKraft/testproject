@@ -1,6 +1,6 @@
 import { addDoc, collection, getFirestore } from "firebase/firestore";
 
-export default async function AddQuestion(question) {
+export default async function addQuestion(question) {
   const db = getFirestore();
   await addDoc(collection(db, "questions"), {
     title: question.title,

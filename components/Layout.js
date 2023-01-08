@@ -41,7 +41,7 @@ export default function Layout({ children, title, description, keywords }) {
         <div className="layoutGrid">
           <DisplayMenu />
           <main>
-            <NextBreadcrumbs />
+            {/*<NextBreadcrumbs />*/}
             {children}
           </main>
         </div>
