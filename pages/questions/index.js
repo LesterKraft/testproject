@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import styles from "/styles/Home.module.scss";
 import QuestionCardMini from "../../components/cards/QuestionCardMini";
 import getQuestions from "../../services/firestore/getQuestions";
+import { getAnswers } from "../../services/firestore/getAnswers";
 
 export default function QuestionsIndex() {
   const [cardsArray, setCardsArray] = useState([]);
