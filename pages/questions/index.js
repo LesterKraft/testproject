@@ -6,31 +6,28 @@ import QuestionCardMini from "../../components/cards/QuestionCardMini";
 import getQuestions from "../../services/firestore/getQuestions";
 
 export default function QuestionsIndex() {
-  // const [cardsArray, setCardsArray] = useState([]);
-  //
-  // const db = getFirestore();
-  // useEffect(() => {
-  //   getDocs(collection(db, "questions"))
-  //     .then((snap) => {
-  //       if (Array.isArray(snap.docs) && snap.docs.length > 0) {
-  //         let tempArray = [];
-  //         snap.docs.forEach((doc) => {
-  //           tempArray.push({ id: doc.id, ...doc.data() });
-  //         });
-  //
-  //         setCardsArray(tempArray);
-  //       }
-  //     })
-  //     .catch((error) => console.log(error));
-  // }, []);
+  const [cardsArray, setCardsArray] = useState([]);
 
-  const cardsData = getQuestions();
+  useEffect(() => {
+    getQuestions()
+      .then((snap) => {
+        if (Array.isArray(snap.docs) && snap.docs.length > 0) {
+          let tempArray = [];
+          snap.docs.forEach((doc) => {
+            tempArray.push({ id: doc.id, ...doc.data() });
+          });
+
+          setCardsArray(tempArray);
+        }
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
   return (
     <>
       <div className={styles.cards}>
-        {cardsData.length > 0 ? (
-          cardsData.map((question) => (
+        {cardsArray.length > 0 ? (
+          cardsArray.map((question) => (
             <QuestionCardMini key={question.id} question={question} />
           ))
         ) : (
