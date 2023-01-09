@@ -1,10 +1,13 @@
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, query, where, limit, orderBy } from "firebase/firestore";
 import { collection, getDocs } from "firebase/firestore";
 
-export default async function getQuestions() {
+export default async function getQuestions(count) {
   const db = getFirestore();
+  const q = query(
+    collection(db, "questions"),
+    orderBy("timestamp"),
+    limit(count)
+  );
 
-  const snapshot = await getDocs(collection(db, "questions"));
-
-  return snapshot;
+  return await getDocs(q);
 }

@@ -16,7 +16,7 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
-import AddAnswer from "../../services/firestore/addAnswer";
+import addAnswer from "../../services/firestore/addAnswer";
 
 export default function QuestionCard(props) {
   const questionData = props.question;
@@ -39,7 +39,7 @@ export default function QuestionCard(props) {
       timestamp: new Date().getTime(),
       views: Math.floor(Math.random() * 50),
     };
-    AddAnswer(answer);
+    addAnswer(answer);
   }
 
   return (

@@ -8,6 +8,7 @@ import { getFirestore } from "firebase/firestore";
 import { getQuestion } from "../../services/firestore/getQuestion";
 import QuestionCardMini from "../../components/cards/QuestionCardMini";
 import { useEffect, useState } from "react";
+import getQuestions from "../../services/firestore/getQuestions";
 
 export default function Post(props) {
   const question = {
@@ -20,13 +21,12 @@ export default function Post(props) {
   };
   const [cardsArray, setCardsArray] = useState([]);
 
-  const db = getFirestore();
   useEffect(() => {
-    getDocs(collection(db, "questions"))
+    getQuestions(5)
       .then((snap) => {
         if (Array.isArray(snap.docs) && snap.docs.length > 0) {
           let tempArray = [];
-          snap.docs.slice(0, 5).forEach((doc) => {
+          snap.docs.forEach((doc) => {
             tempArray.push({ id: doc.id, ...doc.data() });
           });
 

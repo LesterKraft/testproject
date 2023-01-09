@@ -6,23 +6,24 @@ import TimestampComponent from "../../services/timestampComponent";
 import Link from "next/link";
 import { getAnswers } from "../../services/firestore/getAnswers";
 import { useEffect, useState } from "react";
+import { getCountAnswers } from "../../services/firestore/getCountAnswers";
 
 export default function QuestionCardMini(props) {
   const questionData = props.question;
-  const [answerArray, setAnswerArray] = useState([]);
-  useEffect(() => {
-    getAnswers(questionData.id)
-      .then((res) => {
-        let tempArray = [];
-        res.docs.forEach((doc) => {
-          tempArray.push({ id: doc.id, ...doc.data() });
-        });
-        setAnswerArray(tempArray);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [props.question.id]);
+  // const [answerArray, setAnswerArray] = useState([]);
+  // useEffect(() => {
+  //   getAnswers(questionData.id)
+  //     .then((res) => {
+  //       let tempArray = [];
+  //       res.docs.forEach((doc) => {
+  //         tempArray.push({ id: doc.id, ...doc.data() });
+  //       });
+  //       setAnswerArray(tempArray);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }, [props.question.id]);
 
   return (
     <>
@@ -51,7 +52,7 @@ export default function QuestionCardMini(props) {
             aria-label="upvotes"
             startIcon={<QuestionAnswerIcon />}
           >
-            {answerArray.length} Answer
+            <getCountAnswers questionId={props.question.id} /> Answer
           </Button>
         </div>
       </Card>
